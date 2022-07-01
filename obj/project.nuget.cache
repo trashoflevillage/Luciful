@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "o/jxDF+XLiuEN+FDYTsfkIapU1sleFoZsSX7EsbX4QgEhixB8x7i72+KqPJ8hxFM/2r72shVOFSUMSDmjhDnaA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\uhhno\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Luciful\\Luciful.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\uhhno\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
