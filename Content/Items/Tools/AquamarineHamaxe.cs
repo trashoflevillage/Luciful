@@ -30,7 +30,7 @@ namespace Luciful.Content.Items.Tools
             Item.knockBack = 5f;
             Item.crit = 5;
 
-            Item.value = Item.buyPrice(gold: 1);
+            Item.value = Item.sellPrice(silver: 20);
             Item.rare = ItemRarityID.Orange;
 
             Item.axe = 30;

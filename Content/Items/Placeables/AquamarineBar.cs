@@ -18,7 +18,7 @@ namespace Luciful.Content.Items.Placeables
         {
             Item.width = 16;
             Item.height = 16;
-            Item.value = Item.buyPrice(copper: 50);
+            Item.value = Item.sellPrice(copper: 50);
             Item.maxStack = 999;
             Item.consumable = true;
 
@@ -30,11 +30,13 @@ namespace Luciful.Content.Items.Placeables
 
             Item.createTile = ModContent.TileType<Tiles.AquamarineBar>();
             Item.placeStyle = 0;
+
+            Item.rare = ItemRarityID.Orange;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineOre>(), 3).AddTile(TileID.Hellforge).Register();
+            CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineOre>(), 4).AddTile(TileID.Hellforge).Register();
         }
     }
 }

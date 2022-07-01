@@ -14,7 +14,6 @@
     <Folder Include="Assets\Music\" />
     <Folder Include="Assets\Sounds\" />
     <Folder Include="Assets\Textures\" />
-    <Folder Include="Common\Systems\GenPasses\" />
     <Folder Include="Content\Items\Weapons\" />
     <Folder Include="Content\Projectiles\Weapons\" />
     <Folder Include="Localization\" />
