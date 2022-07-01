@@ -15,7 +15,7 @@ namespace Luciful.Content.Items.Placeables
         {
             Item.width = 16;
             Item.height = 16;
-            Item.value = Item.buyPrice(copper: 50);
+            Item.value = Item.sellPrice(copper: 50);
             Item.maxStack = 999;
             Item.consumable = true;
 
@@ -24,6 +24,8 @@ namespace Luciful.Content.Items.Placeables
             Item.useTime = 10;
             Item.useTurn = true;
             Item.autoReuse = true;
+
+            Item.rare = ItemRarityID.Orange;
 
             Item.createTile = ModContent.TileType<Tiles.AquamarineOre> ();
         }

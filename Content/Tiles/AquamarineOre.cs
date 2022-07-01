@@ -20,7 +20,7 @@ namespace Luciful.Content.Tiles
             Main.tileSpelunker[Type] = true; // Glows when using a Spelunker Potion.
             Main.tileOreFinderPriority[Type] = 590; // Metal Detector Priority
 
-            AddMapEntry(new Color(66, 183, 255), Language.GetText("Aquamarine")); // Pretty self explanitory.
+            AddMapEntry(new Color(83, 163, 131), Language.GetText("Aquamarine")); // Pretty self explanitory.
 
             DustType = DustID.Cobalt;
             ItemDrop = ModContent.ItemType<Items.Placeables.AquamarineOre>();
