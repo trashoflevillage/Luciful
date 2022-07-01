@@ -26,7 +26,7 @@ namespace Luciful.Content.Tiles
             ItemDrop = ModContent.ItemType<Items.Placeables.AquamarineOre>();
             HitSound = SoundID.Tink;
 
-            MineResist = 2.5f; // How long the ore takes to mine.
+            MineResist = 2f; // How long the ore takes to mine.
             MinPick = 65; // Pick power needed to mine.
         }
     }
