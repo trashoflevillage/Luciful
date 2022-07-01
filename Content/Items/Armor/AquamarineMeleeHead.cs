@@ -2,6 +2,7 @@
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Luciful.Content.Items.Placeables;
 
 namespace Luciful.Content.Items.Armor
 {
@@ -14,6 +15,7 @@ namespace Luciful.Content.Items.Armor
 		{
 			base.SetStaticDefaults();
 			DisplayName.SetDefault("Aquamarine Mask");
+			Tooltip.SetDefault("5% increased melee speed\n8% increased melee damage");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -29,6 +31,26 @@ namespace Luciful.Content.Items.Armor
 
 		public override void UpdateEquip(Player player)
 		{
+			player.GetAttackSpeed(DamageClass.Melee) += 0.05f;
+			player.GetDamage(DamageClass.Melee) += 0.8f;
+		}
+
+		// IsArmorSet determines what armor pieces are needed for the setbonus to take effect
+		public override bool IsArmorSet(Item head, Item body, Item legs)
+		{
+			return body.type == ModContent.ItemType<AquamarineBreastplate>() && legs.type == ModContent.ItemType<AquamarineLegs>();
+		}
+
+		// UpdateArmorSet allows you to give set bonuses to the armor.
+		public override void UpdateArmorSet(Player player)
+		{
+			player.setBonus = "5% increased melee armor penetration"; // This is the setbonus tooltip
+			player.GetArmorPenetration(DamageClass.Melee) += 0.05f; // Increase dealt damage for all weapon classes by 20%
+		}
+
+		public override void AddRecipes()
+		{
+			CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineBar>(), 12).AddTile(TileID.Anvils).Register();
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace Luciful.Content.Items.Placeables
     {
         public override void SetStaticDefaults() {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-            ItemID.Sets.SortingPriorityMaterials[Type] = 58;
+            ItemID.Sets.SortingPriorityMaterials[Type] = 176;
         }
         public override void SetDefaults()
         {

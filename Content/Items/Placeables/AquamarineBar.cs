@@ -12,7 +12,7 @@ namespace Luciful.Content.Items.Placeables
         {
             DisplayName.SetDefault("Aquamarine Bar");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
-            ItemID.Sets.SortingPriorityMaterials[Type] = 59;
+            ItemID.Sets.SortingPriorityMaterials[Type] = 177;
         }
         public override void SetDefaults()
         {
