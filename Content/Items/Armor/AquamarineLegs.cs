@@ -15,7 +15,6 @@ namespace Luciful.Content.Items.Armor
 		{
 			base.SetStaticDefaults();
 			DisplayName.SetDefault("Aquamarine Leggings");
-			Tooltip.SetDefault("15% increased movement speed");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -31,7 +30,6 @@ namespace Luciful.Content.Items.Armor
 
 		public override void UpdateEquip(Player player)
 		{
-			player.moveSpeed += 0.15f;
 		}
 		public override void AddRecipes()
 		{
