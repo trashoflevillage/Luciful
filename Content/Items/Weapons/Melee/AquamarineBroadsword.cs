@@ -16,8 +16,8 @@ namespace Luciful.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 32;
+            Item.width = 40;
+            Item.height = 40;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 30;
