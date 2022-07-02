@@ -32,7 +32,7 @@ namespace Luciful.Content.Items.Armor
 		public override void UpdateEquip(Player player)
 		{
 			player.manaCost -= 0.05f;
-			player.GetDamage(DamageClass.Magic) += 0.8f;
+			player.GetDamage(DamageClass.Magic) += 0.08f;
 		}
 
 		// IsArmorSet determines what armor pieces are needed for the setbonus to take effect

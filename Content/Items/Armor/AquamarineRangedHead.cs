@@ -32,7 +32,7 @@ namespace Luciful.Content.Items.Armor
 		public override void UpdateEquip(Player player)
 		{
 			player.GetCritChance(DamageClass.Ranged) += 0.5f;
-			player.GetDamage(DamageClass.Ranged) += 0.8f;
+			player.GetDamage(DamageClass.Ranged) += 0.08f;
 		}
 
 		// IsArmorSet determines what armor pieces are needed for the setbonus to take effect
