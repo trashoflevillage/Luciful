@@ -2,6 +2,7 @@
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Luciful.Content.Items.Placeables;
 
 namespace Luciful.Content.Items.Armor
 {
@@ -14,6 +15,7 @@ namespace Luciful.Content.Items.Armor
 		{
 			base.SetStaticDefaults();
 			DisplayName.SetDefault("Aquamarine Helmet");
+			Tooltip.SetDefault("5% increased ranged critical strike chance\n8% increased ranged damage");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -29,6 +31,26 @@ namespace Luciful.Content.Items.Armor
 
 		public override void UpdateEquip(Player player)
 		{
+			player.GetCritChance(DamageClass.Ranged) += 0.5f;
+			player.GetDamage(DamageClass.Ranged) += 0.8f;
+		}
+
+		// IsArmorSet determines what armor pieces are needed for the setbonus to take effect
+		public override bool IsArmorSet(Item head, Item body, Item legs)
+		{
+			return body.type == ModContent.ItemType<AquamarineBreastplate>() && legs.type == ModContent.ItemType<AquamarineLegs>();
+		}
+
+		// UpdateArmorSet allows you to give set bonuses to the armor.
+		public override void UpdateArmorSet(Player player)
+		{
+			player.setBonus = "5% increased ranged speed"; // This is the setbonus tooltip
+			player.GetAttackSpeed(DamageClass.Ranged) += 0.05f; // Increase dealt damage for all weapon classes by 20%
+		}
+
+		public override void AddRecipes()
+		{
+			CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineBar>(), 12).AddTile(TileID.Anvils).Register();
 		}
 	}
 }

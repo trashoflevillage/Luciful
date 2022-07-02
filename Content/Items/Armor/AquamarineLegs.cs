@@ -2,6 +2,7 @@
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Luciful.Content.Items.Placeables;
 
 namespace Luciful.Content.Items.Armor
 {
@@ -29,6 +30,10 @@ namespace Luciful.Content.Items.Armor
 
 		public override void UpdateEquip(Player player)
 		{
+		}
+		public override void AddRecipes()
+		{
+			CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineBar>(), 18).AddTile(TileID.Anvils).Register();
 		}
 	}
 }
