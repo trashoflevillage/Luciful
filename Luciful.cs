@@ -4,5 +4,5 @@ namespace Luciful
 {
 	public class Luciful : Mod
 	{
-	}
+    }
 }

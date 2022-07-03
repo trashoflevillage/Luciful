@@ -2,16 +2,18 @@
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Luciful.Global;
 
 namespace Luciful.Content.Items.Accessories
 {
 	public class AmethystGlove : ModItem
 	{
-        private float SizeIncrease = 6f;
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Amethyst Infused Glove");
-			Tooltip.SetDefault("Increases melee weapon size");
+			Tooltip.SetDefault("Increases melee weapon size by 100%");
+			Tooltip.SetDefault("5% decreased melee speed");
+			Tooltip.SetDefault("Handy for true melee!");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -24,12 +26,12 @@ namespace Luciful.Content.Items.Accessories
 			Item.rare = ItemRarityID.Blue;
 		}
 
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			if (player.HeldItem.CountsAsClass(DamageClass.Melee))
-			{
-                GlobalItem.ModifyItemScale(player.HeldItem, player, ref SizeIncrease);
-			}
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+			LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+			modPlayer.amethystGlove = true;
+			modPlayer.amethystGloveCheckTick = modPlayer.equipmentCheckTick;
+			player.GetAttackSpeed(DamageClass.Melee) -= 0.05f;
 		}
-	}
+    }
 }
