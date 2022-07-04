@@ -16,14 +16,15 @@ namespace Luciful.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 32;
+            Item.height = 32;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 30;
             Item.useAnimation = 24;
             Item.autoReuse = false;
             Item.useTurn = false;
+            Item.scale = 1.8f;
 
             Item.DamageType = DamageClass.Melee;
             Item.damage = 40;

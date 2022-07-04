@@ -22,7 +22,7 @@ namespace Luciful.Content.Tiles
 
             AddMapEntry(new Color(83, 163, 131), Language.GetText("Aquamarine")); // Pretty self explanitory.
 
-            DustType = DustID.Cobalt;
+            DustType = DustID.Mythril;
             ItemDrop = ModContent.ItemType<Items.Placeables.AquamarineOre>();
             HitSound = SoundID.Tink;
 
