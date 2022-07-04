@@ -13,8 +13,9 @@ namespace Luciful
         public bool rubyGlove = false;
         public bool amberGlove = false;
         public bool diamondGlove = false;
-        public int amethystGloveCheckTick = 0;
-        public int equipmentCheckTick = 0;
+        public bool frightGauntlet = false;
+        public bool mightGauntlet = false;
+        public bool sightGauntlet = false;
 
         public override void ResetEffects()
         {
@@ -25,6 +26,9 @@ namespace Luciful
             this.rubyGlove = false;
             this.amberGlove = false;
             this.diamondGlove = false;
+            this.frightGauntlet = false;
+            this.mightGauntlet = false;
+            this.sightGauntlet = false;
         }
 
     }

@@ -17,6 +17,9 @@ namespace Luciful
                 LucifulItem modItem = item.GetGlobalItem<LucifulItem>();
                 if (modItem.scaled == false) { modItem.baseScale = item.scale; modItem.scaled = true; }
                 float scaler = 0f;
+                if (modPlayer.frightGauntlet) scaler += 1.5f;
+                if (modPlayer.mightGauntlet) scaler += 1.5f;
+                if (modPlayer.sightGauntlet) scaler += 1.5f;
                 if (modPlayer.diamondGlove) scaler += 1.5f;
                 if (modPlayer.amberGlove) scaler += 1.25f;
                 if (modPlayer.rubyGlove) scaler += 1.25f;
