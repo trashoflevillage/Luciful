@@ -5,6 +5,7 @@ using Terraria.ID;
 
 namespace Luciful.Content.Items.Accessories.Melee.Gloves
 {
+    [AutoloadEquip(EquipType.HandsOff)]
     public class SilkGlove : ModItem
     {
         public override void SetStaticDefaults()
@@ -22,6 +23,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
             Item.accessory = true;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(silver: 5);
+            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -30,7 +32,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
         }
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ItemID.Silk, 8).AddTile(TileID.Loom).Register();
+            CreateRecipe().AddIngredient(ItemID.Silk, 4).AddTile(TileID.Loom).Register();
         }
     }
 }

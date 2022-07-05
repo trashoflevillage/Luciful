@@ -3,7 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Luciful.Content.Items.Accessories.Misc
+namespace Luciful.Content.Items.Accessories.Necklaces
 {
     [AutoloadEquip(EquipType.Front)]
     public class MushroomNecklace : ModItem
@@ -11,7 +11,7 @@ namespace Luciful.Content.Items.Accessories.Misc
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mushroom Necklace");
-            Tooltip.SetDefault("Increases life regeneration");
+            Tooltip.SetDefault("Increases potency of healing potions");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -28,7 +28,8 @@ namespace Luciful.Content.Items.Accessories.Misc
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.lifeRegen += 1;
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+            modPlayer.mushroomNecklace = true;
         }
 
         public override void AddRecipes()

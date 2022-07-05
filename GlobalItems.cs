@@ -32,6 +32,18 @@ namespace Luciful
         }
 
 
+        public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue)
+        {
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+            int bonusHeal = 0;
+            if (modPlayer.mushroomNecklace) {
+                bonusHeal += 10;
+            }
+
+            healValue = healValue + bonusHeal;
+        }
+
+
         public override void SetDefaults(Item item)
         {
             if (item.type == ItemID.SuspiciousLookingEye ||

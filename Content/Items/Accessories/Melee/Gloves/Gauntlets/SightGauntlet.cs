@@ -6,12 +6,13 @@ using Terraria.ModLoader;
 
 namespace Luciful.Content.Items.Accessories.Melee.Gloves.Gauntlets
 {
+    [AutoloadEquip(EquipType.HandsOff)]
     public class SightGauntlet : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gauntlet of Sight");
-            Tooltip.SetDefault("Increases melee weapon size by 150%\n30% decreased melee speed\nHandy for true melee!\nHopefully I don't forget to add effects later!");
+            Tooltip.SetDefault("Increases melee weapon size by 150%\nIncreases melee damage by 7%\n30% decreased melee speed\nHandy for true melee!\nHopefully I don't forget to add effects later!");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
@@ -26,6 +27,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves.Gauntlets
             Item.accessory = true;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(silver: 50);
+            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -33,6 +35,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves.Gauntlets
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
             modPlayer.sightGauntlet = true;
             player.GetAttackSpeed(DamageClass.Melee) -= 0.30f;
+            player.GetDamage(DamageClass.Melee) += 0.07f;
         }
 
         public override void AddRecipes()

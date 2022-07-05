@@ -16,6 +16,7 @@ namespace Luciful
         public bool frightGauntlet = false;
         public bool mightGauntlet = false;
         public bool sightGauntlet = false;
+        public bool mushroomNecklace = false;
 
         public override void ResetEffects()
         {
@@ -29,6 +30,7 @@ namespace Luciful
             this.frightGauntlet = false;
             this.mightGauntlet = false;
             this.sightGauntlet = false;
+            this.mushroomNecklace = false;
         }
 
     }
