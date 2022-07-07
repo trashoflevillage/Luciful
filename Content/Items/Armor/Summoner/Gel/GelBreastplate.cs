@@ -3,18 +3,18 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Luciful.Content.Items.Armor.Melee.Granite
+namespace Luciful.Content.Items.Armor.Summoner.Gel
 {
     // The AutoloadEquip attribute automatically attaches an equip texture to this item.
     // Providing the EquipType.Body value here will result in TML expecting X_Arms.png, X_Body.png and X_FemaleBody.png sprite-sheet files to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Body)]
-    public class GraniteBreastplate : ModItem
+    public class GelBreastplate : ModItem
     {
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Granite Breastplate");
-            Tooltip.SetDefault("5% increased melee damage");
+            DisplayName.SetDefault("Gel Breastplate");
+            Tooltip.SetDefault("Increases minion damage by 2%\nIncreases your max number of minions by 1");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -30,12 +30,13 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Melee) += 0.03f;
+            player.GetDamage(DamageClass.Summon) += 0.02f;
+            player.maxMinions += 1;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ItemID.Granite, 25).AddTile(TileID.HeavyWorkBench).Register();
+            CreateRecipe().AddIngredient(ItemID.Gel, 25).AddTile(TileID.Solidifier).Register();
         }
     }
 }
