@@ -17,7 +17,6 @@
     <Folder Include="Content\Items\Toggles\World\" />
     <Folder Include="Content\Items\Weapons\" />
     <Folder Include="Content\NPCs\Zombie\" />
-    <Folder Include="Content\Projectiles\Weapons\" />
     <Folder Include="Localization\" />
   </ItemGroup>
 </Project>
