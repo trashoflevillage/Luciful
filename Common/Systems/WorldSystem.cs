@@ -13,6 +13,8 @@ namespace Luciful.Common.Systems
             if (shiniesIndex != -1) 
             {
                 tasks.Insert(shiniesIndex + 1, new AquamarineOreGenPass("Aquamarine Ore Pass", 320f));
+                tasks.Insert(shiniesIndex + 1, new CopperOreGenPass("Inflating the copper economy", 320f));
+                tasks.Insert(shiniesIndex + 1, new TinOreGenPass("Inflating the tin economy", 320f));
             }
         }
     }

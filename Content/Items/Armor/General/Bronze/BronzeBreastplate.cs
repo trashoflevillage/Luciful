@@ -2,19 +2,20 @@
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Luciful.Content.Items.Placeables;
 
-namespace Luciful.Content.Items.Armor.Melee.Granite
+namespace Luciful.Content.Items.Armor.General.Bronze
 {
     // The AutoloadEquip attribute automatically attaches an equip texture to this item.
     // Providing the EquipType.Body value here will result in TML expecting X_Arms.png, X_Body.png and X_FemaleBody.png sprite-sheet files to be placed next to the item's main texture.
-    [AutoloadEquip(EquipType.Legs)]
-    public class BronzeLegs : ModItem
+    [AutoloadEquip(EquipType.Body)]
+    public class BronzeBreastplate : ModItem
     {
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Granite Leggings");
-            Tooltip.SetDefault("5% increased melee damage");
+            DisplayName.SetDefault("Bronze Breastplate");
+            Tooltip.SetDefault("15% increased mining speed");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -24,18 +25,18 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
             Item.width = 18; // Width of the item
             Item.height = 18; // Height of the item
             Item.value = Item.sellPrice(silver: 20); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-            Item.defense = 3; // The amount of defense the item will give when equipped
+            Item.rare = ItemRarityID.White; // The rarity of the item
+            Item.defense = 2; // The amount of defense the item will give when equipped
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Melee) += 0.05f;
+            player.pickSpeed -= 0.15f;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ItemID.Granite, 15).AddTile(TileID.HeavyWorkBench).Register();
+            CreateRecipe().AddIngredient(ModContent.ItemType<BronzeBar>(), 20).AddTile(TileID.Anvils).Register();
         }
     }
 }
