@@ -31,7 +31,8 @@ namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
 
         public override void UpdateEquip(Player player)
         {
-            player.GetAttackSpeed(DamageClass.Melee) += 0.05f;
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+            modPlayer.bonusMeleeSpeed += 0.05f;
             player.GetDamage(DamageClass.Melee) += 0.08f;
         }
 

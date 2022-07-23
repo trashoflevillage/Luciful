@@ -8,7 +8,7 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
     // The AutoloadEquip attribute automatically attaches an equip texture to this item.
     // Providing the EquipType.Body value here will result in TML expecting X_Arms.png, X_Body.png and X_FemaleBody.png sprite-sheet files to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Head)]
-    public class BronzeHead : ModItem
+    public class GraniteHead : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -36,14 +36,15 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
         // IsArmorSet determines what armor pieces are needed for the setbonus to take effect
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<BronzeBreastplate>() && legs.type == ModContent.ItemType<BronzeLegs>();
+            return body.type == ModContent.ItemType<GraniteBreastplate>() && legs.type == ModContent.ItemType<GraniteLegs>();
         }
 
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
             player.setBonus = "5% increased melee speed"; // This is the setbonus tooltip
-            player.GetAttackSpeed(DamageClass.Melee) += 0.05f; // Increase dealt damage for all weapon classes by 20%
+            modPlayer.bonusMeleeSpeed += 0.05f; // Increase dealt damage for all weapon classes by 20%
         }
 
         public override void AddRecipes()

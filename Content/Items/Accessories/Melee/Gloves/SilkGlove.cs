@@ -28,7 +28,8 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetAttackSpeed(DamageClass.Melee) += 0.04f;
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+            modPlayer.bonusMeleeSpeed += 0.04f;
         }
         public override void AddRecipes()
         {

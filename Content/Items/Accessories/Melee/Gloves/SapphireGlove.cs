@@ -30,7 +30,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
             modPlayer.sapphireGlove = true;
-            player.GetAttackSpeed(DamageClass.Melee) -= 0.20f;
+            modPlayer.bonusMeleeSpeed -= 0.20f;
             player.GetDamage(DamageClass.Melee) += 0.03f;
         }
 

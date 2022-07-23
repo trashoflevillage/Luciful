@@ -6,6 +6,11 @@ namespace Luciful
 {
     internal class LucifulPlayer : ModPlayer
     {
+        public float bonusMeleeSpeed = 0f;
+        public float bonusMagicSpeed = 0f;
+        public float bonusRangedSpeed = 0f;
+        public float bonusSummonSpeed = 0f;
+
         public bool amethystGlove = false;
         public bool topazGlove = false;
         public bool sapphireGlove = false;
@@ -20,6 +25,11 @@ namespace Luciful
 
         public override void ResetEffects()
         {
+            this.bonusMeleeSpeed = 0f;
+            this.bonusMagicSpeed = 0f;
+            this.bonusRangedSpeed = 0f;
+            this.bonusSummonSpeed = 0f;
+
             this.amethystGlove = false;
             this.topazGlove = false;
             this.sapphireGlove = false;
