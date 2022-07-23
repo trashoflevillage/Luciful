@@ -11,7 +11,7 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mushroom Necklace");
-            Tooltip.SetDefault("Increases potency of healing potions");
+            Tooltip.SetDefault("Increases life regeneration");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -28,8 +28,7 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.mushroomNecklace = true;
+            player.lifeRegen += 1;
         }
 
         public override void AddRecipes()

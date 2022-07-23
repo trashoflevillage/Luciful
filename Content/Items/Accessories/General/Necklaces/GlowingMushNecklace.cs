@@ -3,14 +3,15 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Luciful.Content.Items.Accessories.General.Dice
+namespace Luciful.Content.Items.Accessories.General.Necklaces
 {
-    public class FourSidedDice : ModItem
+    [AutoloadEquip(EquipType.Front)]
+    public class GlowingMushNecklace : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Four Sided Dice");
-            Tooltip.SetDefault("Increases critical strike chance by 4%");
+            DisplayName.SetDefault("Glowing Mushroom Necklace");
+            Tooltip.SetDefault("Increases the potency of healing potions");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -22,16 +23,18 @@ namespace Luciful.Content.Items.Accessories.General.Dice
             Item.accessory = true;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(copper: 3);
+            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            player.GetCritChance(DamageClass.Generic) += 0.4f;
+            modPlayer.healingPotency += 10;
         }
 
         public override void AddRecipes()
         {
+            CreateRecipe().AddIngredient(ItemID.WhiteString, 1).AddIngredient(ItemID.GlowingMushroom, 1).Register();
         }
     }
 }
