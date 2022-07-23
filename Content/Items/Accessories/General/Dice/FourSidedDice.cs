@@ -3,15 +3,15 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Luciful.Content.Items.Accessories.Necklaces
+namespace Luciful.Content.Items.Accessories.General.Dice
 {
     [AutoloadEquip(EquipType.Front)]
-    public class MushroomNecklace : ModItem
+    public class FourSidedDice : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mushroom Necklace");
-            Tooltip.SetDefault("Increases potency of healing potions");
+            DisplayName.SetDefault("Four Sided Dice");
+            Tooltip.SetDefault("Increases damage output anywhere from 1-4%");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -29,12 +29,11 @@ namespace Luciful.Content.Items.Accessories.Necklaces
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.mushroomNecklace = true;
+            modPlayer.fourSidedDice = true;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ItemID.WhiteString, 1).AddIngredient(ItemID.Mushroom, 1).Register();
         }
     }
 }
