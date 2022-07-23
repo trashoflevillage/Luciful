@@ -6,7 +6,7 @@ using Terraria.ID;
 namespace Luciful.Content.Items.Accessories.General.Necklaces
 {
     [AutoloadEquip(EquipType.Front)]
-    public class FourSidedDice : ModItem
+    public class MushroomNecklace : ModItem
     {
         public override void SetStaticDefaults()
         {

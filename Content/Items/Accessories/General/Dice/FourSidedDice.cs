@@ -5,13 +5,12 @@ using Terraria.ID;
 
 namespace Luciful.Content.Items.Accessories.General.Dice
 {
-    [AutoloadEquip(EquipType.Front)]
     public class FourSidedDice : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Four Sided Dice");
-            Tooltip.SetDefault("Increases damage output anywhere from 1-4%");
+            Tooltip.SetDefault("Increases critical strike chance by 4%");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -23,13 +22,12 @@ namespace Luciful.Content.Items.Accessories.General.Dice
             Item.accessory = true;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(copper: 3);
-            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.fourSidedDice = true;
+            player.GetCritChance(DamageClass.Generic) += 0.4f;
         }
 
         public override void AddRecipes()

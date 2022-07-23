@@ -12,6 +12,8 @@ namespace Luciful
         public float bonusRangedSpeed = 0f;
         public float bonusSummonSpeed = 0f;
 
+        public float meleeWeaponScale = 0f;
+
         // Variables relating to if the player has accessories equipped
         public bool amethystGlove = false;
         public bool topazGlove = false;
@@ -26,8 +28,6 @@ namespace Luciful
 
         public bool mushroomNecklace = false;
 
-        public bool fourSidedDice = false;
-
         public override void ResetEffects()
         {
             // General stat increases
@@ -35,6 +35,8 @@ namespace Luciful
             this.bonusMagicSpeed = 0f;
             this.bonusRangedSpeed = 0f;
             this.bonusSummonSpeed = 0f;
+
+            this.meleeWeaponScale = 0f;
 
             // Variables relating to if the player has accessories equipped
             this.amethystGlove = false;
@@ -49,8 +51,6 @@ namespace Luciful
             this.sightGauntlet = false;
 
             this.mushroomNecklace = false;
-
-            this.fourSidedDice = false;
         }
 
     }
