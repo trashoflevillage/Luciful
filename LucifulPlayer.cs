@@ -1,6 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace Luciful
 {
@@ -23,7 +25,11 @@ namespace Luciful
         // Infliction of buffs/debuffs
 
         public int inflictDilutedIchor = 0;
-        public int inflictCursedSpark = 180;
+        public int inflictCursedSpark = 0;
+
+        // Tick variables
+
+        public int cursedSparkTick = 0;
 
         public override void ResetEffects()
         {
@@ -44,7 +50,7 @@ namespace Luciful
             // Infliction of buffs/debuffs
 
             this.inflictDilutedIchor = 0;
-            this.inflictCursedSpark = 180;
+            this.inflictCursedSpark = 0;
 
         }
 
@@ -74,6 +80,11 @@ namespace Luciful
 
             if (inflictCursedSpark > 0)
                 target.AddBuff(ModContent.BuffType<Content.Buffs.CursedSpark>(), inflictCursedSpark);
+        }
+
+        public static LucifulPlayer Convert(Player player)
+        {
+            return player.GetModPlayer<LucifulPlayer>();
         }
     }
 }

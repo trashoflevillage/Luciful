@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 
 namespace Luciful.Content.Buffs
 {
@@ -17,18 +18,25 @@ namespace Luciful.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.statLife -= 10;
+			LucifulPlayer modPlayer = LucifulPlayer.Convert(player);
+			modPlayer.cursedSparkTick++;
+			if (modPlayer.cursedSparkTick > 59)
+			{
+				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + "couldn't put the fire out."), 8, 0, false, false);
+				modPlayer.cursedSparkTick = 0;
+			}
 			Dust.NewDust(player.position, player.width, player.height, DustID.CursedTorch);
 		}
+
 		public override void Update(NPC npc, ref int buffIndex)
 		{
 			LucifulNPC modNPC = LucifulNPC.Convert(npc);
 			modNPC.cursedSparkTick++;
 			if (modNPC.cursedSparkTick > 59)
-            {
-				npc.StrikeNPCNoInteraction(8, 0f, 0);
+			{
 				modNPC.cursedSparkTick = 0;
-            }
+				npc.StrikeNPC(8, 0, 0);
+			}
 			Dust.NewDust(npc.position, npc.width, npc.height, DustID.CursedTorch);
 		}
 	}

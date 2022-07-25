@@ -33,7 +33,10 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ItemID.WhiteString, 1).AddIngredient(ItemID.Mushroom, 1).Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.WhiteString, 1)
+                .AddIngredient(ItemID.Mushroom, 1)
+                .Register();
         }
     }
 }
