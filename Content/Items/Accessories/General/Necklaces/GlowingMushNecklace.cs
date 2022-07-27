@@ -3,15 +3,15 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Luciful.Content.Items.Accessories.Melee.Gloves
+namespace Luciful.Content.Items.Accessories.General.Necklaces
 {
-    [AutoloadEquip(EquipType.HandsOff)]
-    public class AmethystGlove : ModItem
+    [AutoloadEquip(EquipType.Front)]
+    public class GlowingMushNecklace : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Amethyst Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 35%\nIncreases melee damage by 1%\nHandy for true melee!");
+            DisplayName.SetDefault("Glowing Mushroom Necklace");
+            Tooltip.SetDefault("Increases the potency of healing potions");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -21,21 +21,23 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
             Item.width = 40;
             Item.height = 40;
             Item.accessory = true;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.sellPrice(copper: 50, silver: 15);
+            Item.rare = ItemRarityID.White;
+            Item.value = Item.sellPrice(copper: 3);
             Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.meleeWeaponScale = 0.35f;
-            player.GetDamage(DamageClass.Melee) += 0.01f;
+            modPlayer.healingPotency += 10;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ModContent.ItemType<SilkGlove>(), 1).AddIngredient(ItemID.Amethyst, 3).AddTile(TileID.Anvils).Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.WhiteString, 1)
+                .AddIngredient(ItemID.GlowingMushroom, 1)
+                .Register();
         }
     }
 }

@@ -6,6 +6,7 @@ using Luciful.Content.Items;
 using Terraria.IO;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace Luciful
 {
@@ -18,18 +19,7 @@ namespace Luciful
                 LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
                 LucifulItem modItem = LucifulItem.Convert(item);
                 if (modItem.scaled == false) { modItem.baseScale = item.scale; modItem.scaled = true; }
-                float scaler = 0f;
-                if (modPlayer.frightGauntlet) scaler += 1.5f;
-                if (modPlayer.mightGauntlet) scaler += 1.5f;
-                if (modPlayer.sightGauntlet) scaler += 1.5f;
-                if (modPlayer.diamondGlove) scaler += 1.5f;
-                if (modPlayer.amberGlove) scaler += 1.25f;
-                if (modPlayer.rubyGlove) scaler += 1.25f;
-                if (modPlayer.emeraldGlove) scaler += 1f;
-                if (modPlayer.sapphireGlove) scaler += 0.75f;
-                if (modPlayer.topazGlove) scaler += 0.5f;
-                if (modPlayer.amethystGlove) scaler += 0.35f;
-                item.scale = scaler + modItem.baseScale;
+                item.scale = modPlayer.meleeWeaponScale + modItem.baseScale;
             }
         }
 
@@ -76,12 +66,7 @@ namespace Luciful
         public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue) // Healing potion stuff
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            int bonusHeal = 0;
-            if (modPlayer.mushroomNecklace) {
-                bonusHeal += 10;
-            }
-
-            healValue = healValue + bonusHeal;
+            healValue = healValue + modPlayer.healingPotency;
         }
 
 
@@ -100,6 +85,7 @@ namespace Luciful
                 item.consumable = false;
             }
         }
+
 
     }
 }

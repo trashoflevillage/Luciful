@@ -29,7 +29,7 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.topazGlove = true;
+            modPlayer.meleeWeaponScale = 0.5f;
             modPlayer.bonusMeleeSpeed -= 0.05f;
             player.GetDamage(DamageClass.Melee) += 0.02f;
         }

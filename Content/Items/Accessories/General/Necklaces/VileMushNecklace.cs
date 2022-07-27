@@ -3,15 +3,15 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Luciful.Content.Items.Accessories.General.Dice
+namespace Luciful.Content.Items.Accessories.General.Necklaces
 {
     [AutoloadEquip(EquipType.Front)]
-    public class FourSidedDice : ModItem
+    public class VileMushNecklace : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Four Sided Dice");
-            Tooltip.SetDefault("Increases damage output anywhere from 1-4%");
+            DisplayName.SetDefault("Vile Mushroom Necklace");
+            Tooltip.SetDefault("Inflict Cursed Spark on hit");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -21,19 +21,24 @@ namespace Luciful.Content.Items.Accessories.General.Dice
             Item.width = 40;
             Item.height = 40;
             Item.accessory = true;
-            Item.rare = ItemRarityID.White;
-            Item.value = Item.sellPrice(copper: 3);
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(silver: 3);
             Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            modPlayer.fourSidedDice = true;
+            LucifulPlayer modPlayer = LucifulPlayer.Convert(player);
+            modPlayer.inflictCursedSpark += 180;
         }
 
         public override void AddRecipes()
         {
+            CreateRecipe()
+                .AddIngredient(ItemID.WhiteString, 1)
+                .AddIngredient(ItemID.VileMushroom, 1)
+                .AddIngredient(ItemID.ShadowScale, 5)
+                .Register();
         }
     }
 }
