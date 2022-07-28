@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
 namespace Luciful.Content.Tiles
 {
@@ -24,6 +25,8 @@ namespace Luciful.Content.Tiles
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
+
+            HitSound = SoundID.Shatter;
 
             AddMapEntry(new Color(15, 224, 252), Language.GetText("Blue Flask")); // Pretty self explanitory.
         }

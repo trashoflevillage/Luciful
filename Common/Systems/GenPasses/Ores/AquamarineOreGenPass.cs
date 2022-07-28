@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.WorldBuilding;
 using Luciful.Content.Tiles;
 
-namespace Luciful.Common.Systems.GenPasses
+namespace Luciful.Common.Systems.GenPasses.Ores
 {
     internal class AquamarineOreGenPass : GenPass
     {

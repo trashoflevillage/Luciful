@@ -1,7 +1,8 @@
 ﻿using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using System.Collections.Generic;
-using Luciful.Common.Systems.GenPasses;
+using Luciful.Common.Systems.GenPasses.Ores;
+using Luciful.Common.Systems.GenPasses.Structures;
 
 namespace Luciful.Common.Systems
 {
@@ -12,9 +13,16 @@ namespace Luciful.Common.Systems
             int shiniesIndex = tasks.FindIndex(t => t.Name.Equals("Shinies"));
             if (shiniesIndex != -1) 
             {
-                tasks.Insert(shiniesIndex + 1, new AquamarineOreGenPass("Aquamarine Ore Pass", 320f));
-                tasks.Insert(shiniesIndex + 1, new CopperOreGenPass("Inflating the copper economy", 320f));
-                tasks.Insert(shiniesIndex + 1, new TinOreGenPass("Inflating the tin economy", 320f));
+                tasks.Insert(shiniesIndex + 1, new AquamarineOreGenPass("Aquamarine Ore Pass...", 320f));
+                tasks.Insert(shiniesIndex + 1, new CopperOreGenPass("Inflating the copper economy...", 320f));
+                tasks.Insert(shiniesIndex + 1, new TinOreGenPass("Inflating the tin economy...", 320f));
+                tasks.Insert(shiniesIndex + 1, new DesertLaboratoryGenPass("Simulating Albuquerque...", 10f));
+            }
+            int trapsIndex = tasks.FindIndex(t => t.Name.Equals("Traps"));
+            if (trapsIndex != -1)
+            {
+                tasks.Insert(trapsIndex + 1, new DesertLaboratoryGenPass("Simulating Albuquerque...", 10f));
+                tasks.Insert(trapsIndex + 1, new GoldenGloryIslandGenPass("Adding Sky Guns...", 10f));
             }
         }
     }
