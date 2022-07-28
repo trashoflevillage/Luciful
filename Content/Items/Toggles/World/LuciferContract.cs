@@ -37,6 +37,13 @@ namespace Luciful.Content.Items.Toggles.World
 			Luciful instance = Luciful.Instance;
 			if (Main.masterMode)
 			{
+				if (instance.bossesKilled.Count > 0)
+				{
+					SoundEngine.PlaySound(SoundID.Zombie100);
+					NetworkText chatMessage = NetworkText.FromLiteral("It's too late to go back now.");
+					ChatHelper.BroadcastChatMessage(chatMessage, Color.DarkRed);
+					return;
+                }
 				if (instance.contractSigned == false)
 				{
 					SoundEngine.PlaySound(SoundID.ForceRoarPitched);

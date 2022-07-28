@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
 namespace Luciful
 {
@@ -8,5 +9,6 @@ namespace Luciful
 		public static Luciful Instance { get; private set; }
 
 		public bool contractSigned = false;
+		public IDictionary<string, bool> bossesKilled = new Dictionary<string, bool>();
 	}
 }
