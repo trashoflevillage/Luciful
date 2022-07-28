@@ -53,7 +53,7 @@ namespace Luciful
                 Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(modItem.projectileSpread));
 
                 // Decrease velocity randomly for nicer visuals.
-                newVelocity *= 1f - Main.rand.NextFloat(modItem.spreadVariation);
+                newVelocity *= 1f - Main.rand.NextFloat(modItem.speedVariation);
 
                 // Create a projectile.
                 Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
@@ -62,13 +62,11 @@ namespace Luciful
             return false; // Return false because we don't want tModLoader to shoot projectile
         }
 
-
         public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue) // Healing potion stuff
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
             healValue = healValue + modPlayer.healingPotency;
         }
-
 
         public override void SetDefaults(Item item)
         {
@@ -86,6 +84,13 @@ namespace Luciful
             }
         }
 
-
+        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+        {
+            if (item.rare == ModContent.RarityType<Content.Rarities.Contracted>())
+            {
+                TooltipLine tooltipLine = new TooltipLine(Luciful.Instance, "Contracted", "[c/bc1f00:Contracted]");
+                tooltips.Add(tooltipLine);
+            }
+        }
     }
 }

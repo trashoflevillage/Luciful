@@ -17,4 +17,9 @@
     <Folder Include="Content\NPCs\Zombie\" />
     <Folder Include="Localization\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="StructureHelper">
+      <HintPath>..\..\Mods\StructureHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

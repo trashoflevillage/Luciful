@@ -5,11 +5,11 @@ using Terraria.ID;
 using Terraria.WorldBuilding;
 using Luciful.Content.Tiles;
 
-namespace Luciful.Common.Systems.GenPasses
+namespace Luciful.Common.Systems.GenPasses.Ores
 {
-    internal class TinOreGenPass : GenPass
+    internal class CopperOreGenPass : GenPass
     {
-        public TinOreGenPass(string name, float weight) : base(name, weight) { }
+        public CopperOreGenPass(string name, float weight) : base(name, weight) { }
 
         protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
         {
@@ -24,7 +24,7 @@ namespace Luciful.Common.Systems.GenPasses
                 Tile tile = Framing.GetTileSafely(x, y); // Gets the tile at those coordinates.
                 if (tile.TileType == TileID.Stone || tile.TileType == TileID.Dirt || tile.TileType == TileID.SnowBlock || tile.TileType == TileID.IceBlock || tile.TileType == TileID.Mud)      // || == OR
                 {
-                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(10, 15), TileID.Tin);
+                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(10, 15), TileID.Copper);
                     numSpawned++;
                 }
 

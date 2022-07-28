@@ -12,7 +12,7 @@ namespace Luciful
         
         public int bonusProjectiles = 0;
         public float projectileSpread = 15f;
-        public float spreadVariation = 0.3f;
+        public float speedVariation = 0.3f;
 
         public static LucifulItem Convert(Item item) {
             return item.GetGlobalItem<LucifulItem>();

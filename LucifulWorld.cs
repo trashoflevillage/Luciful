@@ -1,35 +1,26 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Terraria;
-using Terraria.Audio;
-using Terraria.GameContent.Events;
-using Terraria.ID;
-using Terraria.Localization;
+﻿using System.Collections.Generic;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.UI;
 
 namespace Luciful
 {
     internal class LucifulWorld : ModSystem
     {
-        public static bool contractSigned = false;
-
         public override void SaveWorldData(TagCompound tag)
         {
-
+            Luciful instance = Luciful.Instance;
             List<string> lucifulData = new List<string>();
 
-            if (contractSigned) lucifulData.Add("contractSigned");
+            if (instance.contractSigned) lucifulData.Add("contractSigned");
             tag.Add("lucifulData", lucifulData);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
+            Luciful instance = Luciful.Instance;
+
             IList<string> lucifulData = tag.GetList<string>("lucifulData");
-            contractSigned = lucifulData.Contains("contractSigned");
+            if (lucifulData.Contains("contractSigned")) instance.contractSigned = true; else instance.contractSigned = false;
         }
     }
 }
