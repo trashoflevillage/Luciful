@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
 
-namespace Luciful.Content.Tiles
+namespace Luciful.Content.Tiles.Ores
 {
     internal class AquamarineOre : ModTile
     {

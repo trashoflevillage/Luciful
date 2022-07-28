@@ -8,14 +8,15 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Content\NPCs\Zombie\**" />
+    <EmbeddedResource Remove="Content\NPCs\Zombie\**" />
+    <None Remove="Content\NPCs\Zombie\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Music\" />
-    <Folder Include="Assets\Sounds\" />
-    <Folder Include="Assets\Textures\" />
-    <Folder Include="Content\NPCs\Zombie\" />
-    <Folder Include="Localization\" />
+    <Folder Include="Content\Tiles\CraftingStations\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="StructureHelper">

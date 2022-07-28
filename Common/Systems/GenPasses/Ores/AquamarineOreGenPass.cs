@@ -3,7 +3,6 @@ using Terraria.ModLoader;
 using Terraria.IO;
 using Terraria.ID;
 using Terraria.WorldBuilding;
-using Luciful.Content.Tiles;
 
 namespace Luciful.Common.Systems.GenPasses.Ores
 {
@@ -24,7 +23,7 @@ namespace Luciful.Common.Systems.GenPasses.Ores
                 Tile tile = Framing.GetTileSafely(x, y); // Gets the tile at those coordinates.
                 if (tile.TileType == TileID.Stone || tile.TileType == TileID.Dirt || tile.TileType == TileID.SnowBlock || tile.TileType == TileID.IceBlock || tile.TileType == TileID.Mud)      // || == OR
                 {
-                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(2, 4), ModContent.TileType<AquamarineOre>());
+                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(2, 4), ModContent.TileType<Content.Tiles.Ores.AquamarineOre>());
                     numSpawned++;
                 }
 

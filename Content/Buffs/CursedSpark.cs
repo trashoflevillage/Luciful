@@ -18,6 +18,7 @@ namespace Luciful.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
+			if (player.HasBuff(BuffID.CursedInferno)) player.ClearBuff(ModContent.BuffType<CursedSpark>());
 			LucifulPlayer modPlayer = LucifulPlayer.Convert(player);
 			modPlayer.cursedSparkTick++;
 			if (modPlayer.cursedSparkTick > 59)
@@ -30,6 +31,11 @@ namespace Luciful.Content.Buffs
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
+			if (npc.HasBuff(BuffID.CursedInferno))
+			{
+				int index = npc.FindBuffIndex(ModContent.BuffType<CursedSpark>());
+				if (index > -1) npc.DelBuff(index);
+			}
 			LucifulNPC modNPC = LucifulNPC.Convert(npc);
 			modNPC.cursedSparkTick++;
 			if (modNPC.cursedSparkTick > 59)

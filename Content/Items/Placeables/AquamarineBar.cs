@@ -3,7 +3,6 @@ using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 
-
 namespace Luciful.Content.Items.Placeables
 {
     internal class AquamarineBar : ModItem
@@ -28,7 +27,7 @@ namespace Luciful.Content.Items.Placeables
             Item.useTurn = true;
             Item.autoReuse = true;
 
-            Item.createTile = ModContent.TileType<Tiles.AquamarineBar>();
+            Item.createTile = ModContent.TileType<Tiles.Bars.AquamarineBar>();
             Item.placeStyle = 0;
 
             Item.rare = ItemRarityID.Orange;
