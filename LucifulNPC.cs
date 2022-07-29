@@ -22,8 +22,8 @@ namespace Luciful
             if (instance.contractSigned == true && Main.masterMode)
             {
                 modNpc.contracted = true;
-                npc.lifeMax *= (int) 1.2;
-                npc.life *= (int) 1.2;
+                npc.lifeMax = (int) (1.2 * npc.lifeMax);
+                npc.life = (int) (1.2 * npc.lifeMax);
             }
             else modNpc.contracted = false;
 
