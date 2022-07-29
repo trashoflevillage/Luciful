@@ -17,11 +17,16 @@ namespace Luciful.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
+			if (player.HasBuff(BuffID.Ichor)) player.ClearBuff(ModContent.BuffType<DilutedIchor>());
 			player.statDefense -= 3;
 			Dust.NewDust(player.position, player.width, player.height, DustID.Ichor);
 		}
 		public override void Update(NPC npc, ref int buffIndex)
 		{
+			if (npc.HasBuff(BuffID.Ichor)) {
+				int index = npc.FindBuffIndex(ModContent.BuffType<DilutedIchor>());
+				if (index > -1) npc.DelBuff(index);
+			} 
 			npc.defense -= 2;
 			Dust.NewDust(npc.position, npc.width, npc.height, DustID.Ichor);
 		}

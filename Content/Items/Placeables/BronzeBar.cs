@@ -28,7 +28,7 @@ namespace Luciful.Content.Items.Placeables
             Item.useTurn = true;
             Item.autoReuse = true;
 
-            Item.createTile = ModContent.TileType<Tiles.BronzeBar>();
+            Item.createTile = ModContent.TileType<Tiles.Bars.BronzeBar>();
             Item.placeStyle = 0;
 
             Item.rare = ItemRarityID.White;

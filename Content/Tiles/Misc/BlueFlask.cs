@@ -4,28 +4,31 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.ID;
 
-namespace Luciful.Content.Tiles
+namespace Luciful.Content.Tiles.Misc
 {
-    internal class AquamarineBar : ModTile
+    internal class BlueFlask : ModTile
     {
         public override void SetStaticDefaults()
         {
-            Main.tileSolid[Type] = true;
-            Main.tileSolidTop[Type] = true; // Acts similar to a platform.
+            Main.tileSolid[Type] = false;
+            Main.tileSolidTop[Type] = false; // Acts similar to a platform.
             Main.tileFrameImportant[Type] = true; // ???
-            Main.tileMergeDirt[Type] = true; // Defines that the tile blends with dirt.
-            Main.tileBlockLight[Type] = true; // Defines that light does not pass through this tile.
+            Main.tileMergeDirt[Type] = false; // Defines that the tile blends with dirt.
+            Main.tileBlockLight[Type] = false; // Defines that light does not pass through this tile.
             Main.tileShine[Type] = 1100; // How often the tile sparkles!
             Main.tileShine2[Type] = true; // Color variation.
             Main.tileSpelunker[Type] = true; // Glows when using a Spelunker Potion.
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.StyleHorizontal = true;
-            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.LavaDeath = true;
             TileObjectData.addTile(Type);
 
-            AddMapEntry(new Color(224, 194, 101), Language.GetText("Metal Bar")); // Pretty self explanitory.
+            HitSound = SoundID.Shatter;
+
+            AddMapEntry(new Color(15, 224, 252), Language.GetText("Blue Flask")); // Pretty self explanitory.
         }
 
 
@@ -37,7 +40,7 @@ namespace Luciful.Content.Tiles
             // It can be useful to share a single tile with multiple styles. This code will let you drop the appropriate bar if you had multiple.
             if (style == 0)
             {
-                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Placeables.AquamarineBar>());
+                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Weapons.Magic.BlueFlask>());
             }
 
             return base.Drop(i, j);

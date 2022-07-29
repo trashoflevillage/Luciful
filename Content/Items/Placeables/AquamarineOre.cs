@@ -27,7 +27,7 @@ namespace Luciful.Content.Items.Placeables
 
             Item.rare = ItemRarityID.Orange;
 
-            Item.createTile = ModContent.TileType<Tiles.AquamarineOre> ();
+            Item.createTile = ModContent.TileType<Tiles.Ores.AquamarineOre> ();
         }
     }
 }

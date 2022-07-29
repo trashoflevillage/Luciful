@@ -22,6 +22,8 @@ namespace Luciful
             if (instance.contractSigned == true && Main.masterMode)
             {
                 modNpc.contracted = true;
+                npc.lifeMax *= (int) 1.2;
+                npc.life *= (int) 1.2;
             }
             else modNpc.contracted = false;
 
@@ -42,11 +44,13 @@ namespace Luciful
 
         public override void OnKill(NPC npc)
         {
+            Luciful instance = Luciful.Instance;
             if (contracted)
             {
                 int? essenceItem = null;
                 if (npc.boss)
                 {
+                    instance.bossesKilled.Add("defeated" + npc.type, true);
                     switch (npc.type)
                     {
                         case NPCID.EyeofCthulhu: essenceItem = ModContent.ItemType<EyeOfCthulhuEssence>(); break;
@@ -58,7 +62,5 @@ namespace Luciful
                 }
             }
         }
-
-
     }
 }

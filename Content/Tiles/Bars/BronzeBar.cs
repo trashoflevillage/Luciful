@@ -5,7 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace Luciful.Content.Tiles
+namespace Luciful.Content.Tiles.Bars
 {
     internal class BronzeBar : ModTile
     {
