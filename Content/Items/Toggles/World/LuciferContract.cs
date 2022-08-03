@@ -15,7 +15,7 @@ namespace Luciful.Content.Items.Toggles.World
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lucifer's Contract");
-			Tooltip.SetDefault("Will you sign it?\nOnly usable in Master Mode");
+			Tooltip.SetDefault("Will you sign it?\nOnly usable in Master Mode\nYou cannot toggle this after defeating a boss");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
