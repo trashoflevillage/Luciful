@@ -86,5 +86,12 @@ namespace Luciful
         {
             return player.GetModPlayer<LucifulPlayer>();
         }
+
+        public override void PostUpdate()
+        {
+            Luciful instance = Luciful.Instance;
+            Player player = Player;
+            bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
+        }
     }
 }
