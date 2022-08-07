@@ -25,6 +25,13 @@ namespace Luciful.Content.NPCs.Bosses.Minions
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets.Add(NPC.type, debuffData);
+
+
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			{
+				Hide = true // Hides this NPC from the Bestiary, useful for multi-part NPCs whom you only want one entry.
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 		}
 
 		public override void SetDefaults()

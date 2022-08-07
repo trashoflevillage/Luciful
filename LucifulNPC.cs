@@ -46,7 +46,6 @@ namespace Luciful
                     {
                         newBossBorder = GetBossBorder(npc);
                         newBossBorder.location = GetNearestPlayer(npc).position;
-                        Main.NewText(GetNearestPlayer(npc).name);
                         instance.bossBorder = newBossBorder;
                     }
             }

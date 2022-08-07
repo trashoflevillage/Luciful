@@ -167,3 +167,11 @@ C:\Users\fnafl\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Deb
 C:\Users\fnafl\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\refint\Luciful.dll
 C:\Users\fnafl\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.pdb
 C:\Users\fnafl\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\ref\Luciful.dll
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.csproj.AssemblyReference.cache
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.AssemblyInfoInputs.cache
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.AssemblyInfo.cs
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.csproj.CoreCompileInputs.cache
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.dll
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\refint\Luciful.dll
+C:\Users\uhhno\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\Luciful\obj\Debug\net6.0\Luciful.pdb

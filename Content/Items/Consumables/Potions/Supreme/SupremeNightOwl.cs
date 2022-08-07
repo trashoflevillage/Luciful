@@ -33,8 +33,9 @@ namespace Luciful.Content.Items.Consumables.Potions.Supreme
 		}
 
         public override void UseAnimation(Player player)
-        {
-			player.AddBuff(BuffID.NightOwl, 2147483647);
+		{
+			LucifulPlayer modPlayer = LucifulPlayer.Convert(player);
+			modPlayer.infiniteBuffs.Add(BuffID.NightOwl);
 		}
 
 		public override void AddRecipes()

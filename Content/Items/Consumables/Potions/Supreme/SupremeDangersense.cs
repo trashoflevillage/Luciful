@@ -34,7 +34,9 @@ namespace Luciful.Content.Items.Consumables.Potions.Supreme
 
         public override void UseAnimation(Player player)
         {
-			player.AddBuff(BuffID.Dangersense, 2147483647);
+			LucifulPlayer modPlayer = LucifulPlayer.Convert(player);
+			modPlayer.infiniteBuffs.Add(BuffID.Dangersense);
+			player.AddBuff(BuffID.Dangersense, 1);
 		}
 
 		public override void AddRecipes()

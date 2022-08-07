@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using System.Collections.Generic;
 
 namespace Luciful
 {
@@ -23,6 +24,8 @@ namespace Luciful
         public int healingPotency = 0;
 
         // Infliction of buffs/debuffs
+
+        public List<int> infiniteBuffs = new List<int>();
 
         public int inflictDilutedIchor = 0;
         public int inflictCursedSpark = 0;
@@ -66,13 +69,6 @@ namespace Luciful
             HitNpc(target, damage, knockback, crit);
         }
 
-        /// <summary>
-        /// Allows you to create special effects when this player hits an NPC in any way.
-        /// </summary>
-        /// <param name="target"></param>
-        /// <param name="damage"></param>
-        /// <param name="knockback"></param>
-        /// <param name="crit"></param>
         public void HitNpc(NPC target, int damage, float knockback, bool crit)
         {
             if (inflictDilutedIchor > 0)
@@ -92,6 +88,12 @@ namespace Luciful
             Luciful instance = Luciful.Instance;
             Player player = Player;
             bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
+            if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
+        }
+
+        public override void OnRespawn(Player player)
+        {
+            infiniteBuffs.Clear();
         }
     }
 }
