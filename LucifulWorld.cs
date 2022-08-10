@@ -35,5 +35,14 @@ namespace Luciful
             Luciful instance = Luciful.Instance;
             if (instance.bossBorder != null) instance.bossBorder.Tick();
         }
+        public override void AddRecipeGroups()
+        {
+            if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
+            {
+                int index = RecipeGroup.recipeGroupIDs["Wood"];
+                RecipeGroup group = RecipeGroup.recipeGroups[index];
+                group.ValidItems.Add(ModContent.ItemType<Content.Items.Placeables.Wood.GoblinWood>());
+            }
+        }
     }
 }

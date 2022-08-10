@@ -45,5 +45,15 @@ namespace Luciful.Content.Tiles.Misc
 
             return base.Drop(i, j);
         }
+
+        public override void MouseOver(int i, int j)
+        {
+        }
+
+        public override bool RightClick(int i, int j)
+        {
+            WorldGen.KillTile(i, j);
+            return true;
+        }
     }
 }

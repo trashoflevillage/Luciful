@@ -37,7 +37,7 @@ namespace Luciful.Content.Tiles.Bars
             // It can be useful to share a single tile with multiple styles. This code will let you drop the appropriate bar if you had multiple.
             if (style == 0)
             {
-                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Placeables.BronzeBar>());
+                Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Placeables.Bars.BronzeBar>());
             }
 
             return base.Drop(i, j);

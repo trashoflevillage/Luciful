@@ -65,7 +65,7 @@ namespace Luciful
         public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue) // Healing potion stuff
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            healValue = healValue + modPlayer.healingPotency;
+            healValue += modPlayer.healingPotency;
         }
 
         public override void SetDefaults(Item item)

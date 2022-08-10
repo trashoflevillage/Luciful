@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Luciful.Content.Items.Placeables;
+using Luciful.Content.Items.Placeables.Bars;
 
 namespace Luciful.Content.Items.Weapons.Ranged
 {
-	public class AquamarineBow : ModItem
+    public class AquamarineBow : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,11 +1,11 @@
 ﻿using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
-using Luciful.Content.Items.Placeables;
+using Luciful.Content.Items.Placeables.Bars;
 
 namespace Luciful.Content.Items.Ammo
 {
-	public class AquamarineArrow : ModItem
+    public class AquamarineArrow : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

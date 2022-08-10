@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
-using Luciful.Content.Items.Placeables;
+using Luciful.Content.Items.Placeables.Bars;
 
 namespace Luciful.Content.Items.Weapons.Melee
 {

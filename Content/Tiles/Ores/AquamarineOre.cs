@@ -23,7 +23,7 @@ namespace Luciful.Content.Tiles.Ores
             AddMapEntry(new Color(83, 163, 131), Language.GetText("Aquamarine")); // Pretty self explanitory.
 
             DustType = DustID.Mythril;
-            ItemDrop = ModContent.ItemType<Items.Placeables.AquamarineOre>();
+            ItemDrop = ModContent.ItemType<Items.Placeables.Ores.AquamarineOre>();
             HitSound = SoundID.Tink;
 
             MineResist = 2f; // How long the ore takes to mine.

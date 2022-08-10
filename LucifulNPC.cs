@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using Luciful.Content.NPCs.Bosses;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using Luciful.Common.Systems.GenPasses.Structures;
+using IL.Terraria.WorldBuilding;
 
 namespace Luciful
 {
