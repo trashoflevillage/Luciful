@@ -91,6 +91,14 @@ namespace Luciful
             if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
         }
 
+        public override void PreUpdateBuffs()
+        {
+            foreach (int buff in infiniteBuffs)
+            {
+                Player.AddBuff(buff, 1);
+            }
+        }
+
         public override void OnRespawn(Player player)
         {
             infiniteBuffs.Clear();

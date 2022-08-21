@@ -2,6 +2,8 @@
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Luciful
 {
@@ -43,6 +45,16 @@ namespace Luciful
                 RecipeGroup group = RecipeGroup.recipeGroups[index];
                 group.ValidItems.Add(ModContent.ItemType<Content.Items.Placeables.Wood.GoblinWood>());
             }
+        }
+
+        public void CreateExplosion(Vector2 position, int power = 2, int damage = 0)
+        {
+            CreateExplosion((int)position.X, (int)position.Y, power, damage);
+        }
+
+        public void CreateExplosion(int x, int y, int power = 2, int damage = 0)
+        {
+
         }
     }
 }

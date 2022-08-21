@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Luciful.Content.Items.Placeables.Bars;
 
-namespace Luciful.Content.Items.Tools
+namespace Luciful.Content.Items.Tools.Aquamarine
 {
     internal class AquamarinePickaxe : ModItem
     {

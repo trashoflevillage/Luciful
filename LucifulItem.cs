@@ -6,6 +6,8 @@ namespace Luciful
 {
     internal class LucifulItem : GlobalItem
     {
+        public int genericTracker1 = 0;
+
         public override bool InstancePerEntity => true;
         public float baseScale;
         public bool scaled = false;

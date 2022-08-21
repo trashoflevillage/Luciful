@@ -113,6 +113,7 @@ namespace Luciful
 
         public override bool CheckActive(NPC npc)
         {
+            return true;
             if (npc.boss)
             {
                 int deadPlayers = 0;
@@ -144,6 +145,16 @@ namespace Luciful
             {
                 instance.bossesAlive--;
                 if (instance.bossesAlive == 0) instance.bossBorder = null;
+            }
+        }
+
+        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        {
+            if (type == NPCID.Demolitionist)
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Content.Items.Tools.Misc.Bomberang>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(gold: 35);
+                nextSlot += 1;
             }
         }
     }
