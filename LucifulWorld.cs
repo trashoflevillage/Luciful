@@ -46,15 +46,5 @@ namespace Luciful
                 group.ValidItems.Add(ModContent.ItemType<Content.Items.Placeables.Wood.GoblinWood>());
             }
         }
-
-        public void CreateExplosion(Vector2 position, int power = 2, int damage = 0)
-        {
-            CreateExplosion((int)position.X, (int)position.Y, power, damage);
-        }
-
-        public void CreateExplosion(int x, int y, int power = 2, int damage = 0)
-        {
-
-        }
     }
 }

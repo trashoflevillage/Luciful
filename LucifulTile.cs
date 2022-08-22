@@ -12,20 +12,25 @@ namespace Luciful
             if (Main.tile[x, y].TileType == ModContent.TileType<Content.Tiles.Wood.GoblinWood>()) return false;
             return true;
         }
+
+        public static bool AttemptExplode(Point position)
+        {
+            return AttemptExplode(position.X, position.Y);
+        }
         public static bool AttemptExplode(Vector2 position)
         {
             return AttemptExplode((int)position.X, (int)position.Y);
         }
-
         public static bool AttemptExplode(int x, int y)
         {
             if (TileLoader.CanExplode(x, y))
             {
-                bool a = false;
-                TileLoader.KillTile(x, y, Main.tile[x, y].TileType, ref a, ref a, ref a);
-                return true;
+                if (Main.tile[x, y].HasTile) {
+                    WorldGen.KillTile(x, y, false, false, false);
+                    return true;
+                }
             }
-            else return false;
+            return false;
         }
 
 

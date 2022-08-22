@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace Luciful.Content.Projectiles.Boomerangs.ElementalBoomerang
 {
-	public class Bomberang : ModProjectile
+	public class DualityFlame : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{

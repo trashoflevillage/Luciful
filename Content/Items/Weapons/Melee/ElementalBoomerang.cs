@@ -28,7 +28,7 @@ namespace Luciful.Content.Items.Weapons.Melee
 			Item.useTime = 8;
 			Item.shootSpeed = 16f;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.ElementalBoomerang.Bomberang>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.ElementalBoomerang.DualityFlame>();
 
 			Item.rare = ItemRarityID.Orange;
 		}
@@ -43,7 +43,7 @@ namespace Luciful.Content.Items.Weapons.Melee
 			}
 			else
 			{
-				Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.ElementalBoomerang.Bomberang>();
+				Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.ElementalBoomerang.DualityFlame>();
 				modItem.genericTracker1 = 0;
 			}
 			return true;

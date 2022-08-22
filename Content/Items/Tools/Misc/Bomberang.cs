@@ -1,8 +1,8 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Terraria.GameContent.Creative;
-using Luciful.Content.Items.Placeables.Bars;
 
 namespace Luciful.Content.Items.Tools.Misc
 {
@@ -21,10 +21,11 @@ namespace Luciful.Content.Items.Tools.Misc
 
             Item.DamageType = DamageClass.Generic;
             Item.damage = 0;
-            Item.useTime = 25;
-            Item.shootSpeed = 16f;
+            Item.useTime = 50;
+            Item.useAnimation = 50;
+            Item.shootSpeed = 13f;
             Item.autoReuse = false;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.ElementalBoomerang.Bomberang>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.Bomberang>();
 
             Item.rare = ItemRarityID.Blue;
         }
