@@ -2,13 +2,11 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.ItemDropRules;
-using Luciful.Content.Items.Materials.Essence;
 using System.Collections.Generic;
 using Luciful.Content.NPCs.Bosses;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
-using Luciful.Common.Systems.GenPasses.Structures;
-using IL.Terraria.WorldBuilding;
+using Luciful.Common.Systems.Util;
 
 namespace Luciful
 {
@@ -17,17 +15,18 @@ namespace Luciful
         public override bool InstancePerEntity => true;
         public int cursedSparkTick = 0;
 
-        public bool contracted = false;
+        //public bool contracted = false;
         public List<DropOneByOne> dropOneByOnes = new List<DropOneByOne>();
 
         public override void SetDefaults(NPC npc)
         {
             Luciful instance = Luciful.Instance;
+            /*
             if (instance.contractSigned == true && Main.masterMode)
             {
                 npc.lifeMax = (int) (1.2 * npc.lifeMax);
                 npc.life = (int) (1.2 * npc.lifeMax);
-            }
+            }*/
 
             if (npc.buffImmune[BuffID.Ichor])
                 npc.buffImmune[ModContent.BuffType<Content.Buffs.DilutedIchor>()] = true;
@@ -35,11 +34,16 @@ namespace Luciful
                 npc.buffImmune[ModContent.BuffType<Content.Buffs.CursedSpark>()] = true;
         }
 
+        public void OnDespawn()
+        {
+        }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
+            LucifulWorld.NPCs.Add(npc);
             LucifulNPC modNpc = Convert(npc);
             Luciful instance = Luciful.Instance;
             if (npc.boss) instance.bossesAlive++;
+            /*
             if (instance.contractSigned == true && Main.masterMode)
             {
                 modNpc.contracted = true;
@@ -51,7 +55,7 @@ namespace Luciful
                         instance.bossBorder = newBossBorder;
                     }
             }
-            else modNpc.contracted = false;
+            else modNpc.contracted = false;*/
         }
 
         public static LucifulNPC Convert(NPC npc)
@@ -62,24 +66,21 @@ namespace Luciful
         public override void OnKill(NPC npc)
         {
             Luciful instance = Luciful.Instance;
-            if (npc.boss)
+            /*if (npc.boss && contracted)
             {
                 instance.bossesAlive--;
                 if (instance.bossesAlive == 0) instance.bossBorder = null;
                 if (!instance.bossesKilled.ContainsKey("defeated" + npc.type)) instance.bossesKilled.Add("defeated" + npc.type, true);
                 int? essenceItem = null;
-                if (contracted)
+                switch (npc.type)
                 {
-                    switch (npc.type)
-                    {
-                        case NPCID.EyeofCthulhu: essenceItem = ModContent.ItemType<EyeOfCthulhuEssence>(); break;
-                    }
+                    case NPCID.EyeofCthulhu: essenceItem = ModContent.ItemType<EyeOfCthulhuEssence>(); break;
                 }
                 if (essenceItem != null)
                 {
                     npc.DropItemInstanced(npc.position, npc.Size, essenceItem.Value, 5, true);
                 }
-            }
+            }*/
         }
 
         public static BossBorder GetBossBorder(NPC npc)
@@ -91,70 +92,48 @@ namespace Luciful
             }
         }
 
+        public static int? GetSummonItem(NPC npc)
+        {
+            switch (npc.type)
+            {
+                default: return null;
+                case NPCID.KingSlime: return ItemID.SlimeCrown;
+                case NPCID.EyeofCthulhu: return ItemID.SuspiciousLookingEye;
+                case NPCID.BrainofCthulhu: return ItemID.BloodySpine;
+            }
+        }
+
         public static Player GetNearestPlayer(NPC npc)
         {
-            float? lastDistance = null;
-            Player nearestPlayer = null;
-            foreach (Player i in Main.player)
-            {
-                if (nearestPlayer != null && i.position.Distance(npc.position) < lastDistance)
-                {
-                    lastDistance = i.position.Distance(npc.position);
-                    nearestPlayer = i;
-                }
-                if (nearestPlayer == null)
-                {
-                    lastDistance = i.position.Distance(npc.position);
-                    nearestPlayer = i;
-                }
-            }
-            return nearestPlayer;
+            return LocationHelper.GetNearestPlayer(npc.position);
         }
 
-        public override bool CheckActive(NPC npc)
-        {
-            return true;
-            if (npc.boss)
-            {
-                int deadPlayers = 0;
-                foreach (Player i in Main.player)
-                {
-                    if (i.dead)
-                    {
-                        deadPlayers++;
-                    }
-                }
-                if (deadPlayers == Main.player.Length)
-                {
-                    OnDespawn(npc);
-                    return true;
-                }
-                else return false;
-            }
-            else
-            {
-                OnDespawn(npc);
-                return true;
-            }
-        }
-
-        public void OnDespawn(NPC npc)
+        public static void OnDespawn(NPC npc)
         {
             Luciful instance = Luciful.Instance;
+            int? summonItem = GetSummonItem(npc);
+            if (summonItem != null)
+            {
+                Vector2 itemPosition = npc.position;
+                float newY = LocationHelper.GetNearestPlayer(npc.position).position.Y;
+                Main.NewText(LocationHelper.GetNearestPlayer(npc.position).name);
+                if (newY < itemPosition.Y) itemPosition.Y = newY;
+                Tile tile = Framing.GetTileSafely(itemPosition);
+                if (tile.HasTile)
+                {
+                    while (tile.HasTile)
+                    {
+                        itemPosition.Y++;
+                        tile = Framing.GetTileSafely(itemPosition);
+                    }
+                }
+
+                Item.NewItem(npc.GetSource_DropAsItem(), itemPosition, (int)summonItem);
+            }
             if (npc.boss)
             {
                 instance.bossesAlive--;
-                if (instance.bossesAlive == 0) instance.bossBorder = null;
-            }
-        }
-
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
-        {
-            if (type == NPCID.Demolitionist)
-            {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Content.Items.Tools.Misc.Bomberang>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(gold: 35);
-                nextSlot += 1;
+                //if (instance.bossesAlive == 0) instance.bossBorder = null;
             }
         }
     }

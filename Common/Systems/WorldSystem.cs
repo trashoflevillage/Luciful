@@ -24,6 +24,11 @@ namespace Luciful.Common.Systems
                 tasks.Insert(trapsIndex + 1, new DesertLaboratoryGenPass("Simulating Albuquerque...", 10f));
                 tasks.Insert(trapsIndex + 1, new GoldenGloryIslandGenPass("Adding Sky Guns...", 10f));
             }
+            int slushIndex = tasks.FindIndex(t => t.Name.Equals("Slush"));
+            if (slushIndex != -1)
+                tasks.Insert(slushIndex + 1, new EvilOreGenPass("Inflating the evil economy...", 320f));
+            /* Since the goal of this GenPass is to increase the abundance of the evil ore in evil biomes, it is used in the slush index because
+                the world doesn't generate corruption until after ores are generated, whereas slush is immediately after corruption.*/
         }
     }
 }

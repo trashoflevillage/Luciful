@@ -70,27 +70,10 @@ namespace Luciful
 
         public override void SetDefaults(Item item)
         {
-            if (item.type == ItemID.SuspiciousLookingEye ||
-                item.type == ItemID.WormFood ||
-                item.type == ItemID.BloodySpine ||
-                item.type == ItemID.Abeemination ||
-                item.type == ItemID.MechanicalEye ||
-                item.type == ItemID.MechanicalSkull ||
-                item.type == ItemID.MechanicalWorm ||
-                item.type == ItemID.LihzahrdPowerCell ||
-                item.type == ItemID.CelestialSigil)
-            {
-                item.consumable = false;
-            }
         }
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (item.rare == ModContent.RarityType<Content.Rarities.Contracted>())
-            {
-                TooltipLine tooltipLine = new TooltipLine(Luciful.Instance, "Contracted", "[c/bc1f00:Contracted]");
-                tooltips.Add(tooltipLine);
-            }
         }
 
         public override bool ConsumeItem(Item item, Player player)

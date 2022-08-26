@@ -87,11 +87,11 @@ namespace Luciful
         {
             Luciful instance = Luciful.Instance;
             Player player = Player;
-            if (instance.bossBorder != null)
+            /*if (instance.bossBorder != null)
             {
                 bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
                 if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
-            }
+            }*/
         }
 
         public override void PreUpdateBuffs()

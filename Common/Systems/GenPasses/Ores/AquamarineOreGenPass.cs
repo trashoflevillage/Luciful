@@ -12,7 +12,7 @@ namespace Luciful.Common.Systems.GenPasses.Ores
 
         protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
         {
-            int maxToSpawn = WorldGen.genRand.Next(500, 1000);
+            int maxToSpawn = WorldGen.genRand.Next(500, 1000) * GenHelper.GetWorldSizeMultiplier(Main.maxTilesX);
             int numSpawned = 0;
             int attempts = 0;
             while (numSpawned < maxToSpawn)

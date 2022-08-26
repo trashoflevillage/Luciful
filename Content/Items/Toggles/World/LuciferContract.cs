@@ -11,7 +11,7 @@ using Terraria.Localization;
 namespace Luciful.Content.Items.Toggles.World
 {
 	public class LuciferContract : ModItem
-	{
+	{/*
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lucifer's Contract");
@@ -69,6 +69,7 @@ namespace Luciful.Content.Items.Toggles.World
         public override void AddRecipes()
 		{
 			CreateRecipe(1).Register();
-		}
+		
+		}*/
 	}
 }
