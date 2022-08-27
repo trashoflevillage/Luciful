@@ -42,7 +42,8 @@ namespace Luciful
             List<NPC> removeNPCs = new List<NPC>();
             foreach (NPC i in NPCs.Where(n => !n.active))
             {
-                LucifulNPC.OnDespawn(i);
+                if (i.life > 0)
+                    LucifulNPC.OnDespawn(i);
                 removeNPCs.Add(i);
             }
             foreach (NPC i in removeNPCs)

@@ -1,8 +1,8 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using IL.Terraria;
 using Luciful.Content.NPCs.Bosses;
 using Terraria;
+using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
 
@@ -23,33 +23,11 @@ namespace Luciful
         {
         }
 
-        public void CreateExplosion(Vector2 position, int radius = 3, int damage = 0)
+        public override void PostAddRecipes()
         {
-            CreateExplosion((int)position.X, (int)position.Y, radius, damage);
-        }
-        public void CreateExplosion(Point position, int radius = 3, int damage = 0)
-        {
-            CreateExplosion((int)position.X, (int)position.Y, radius, damage);
-        }
-        public void CreateExplosion(int x, int y, int radius = 3, int damage = 0)
-        {
-            Point cornerA = new Point(x - radius, y - radius);
-            Point cornerB = new Point(x + radius, y + radius);
-            Point selectedLoc = cornerA;
-            while (true)
+			foreach (Recipe i in Main.recipe)
             {
-                if ((selectedLoc.X - x) * (selectedLoc.X - x) +
-                    (selectedLoc.Y - y) * (selectedLoc.Y - y) <= radius * radius)
-                {
-                    LucifulTile.AttemptExplode(selectedLoc);
-                }
-                selectedLoc.X++;
-                if (selectedLoc.X > cornerB.X)
-                {
-                    selectedLoc.X = cornerA.X;
-                    selectedLoc.Y++;
-                    if (selectedLoc.Y > cornerB.Y) break;
-                }
+                if (i.HasResult(ItemID.GravediggerShovel)) i.DisableRecipe();
             }
         }
     }

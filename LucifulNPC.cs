@@ -34,9 +34,6 @@ namespace Luciful
                 npc.buffImmune[ModContent.BuffType<Content.Buffs.CursedSpark>()] = true;
         }
 
-        public void OnDespawn()
-        {
-        }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
             LucifulWorld.NPCs.Add(npc);
@@ -99,7 +96,18 @@ namespace Luciful
                 default: return null;
                 case NPCID.KingSlime: return ItemID.SlimeCrown;
                 case NPCID.EyeofCthulhu: return ItemID.SuspiciousLookingEye;
+                case NPCID.EaterofWorldsHead: return ItemID.WormFood;
                 case NPCID.BrainofCthulhu: return ItemID.BloodySpine;
+                case NPCID.QueenBee: return ItemID.Abeemination;
+                case NPCID.QueenSlimeBoss: return ItemID.QueenSlimeCrystal;
+                case NPCID.Spazmatism: return ItemID.MechanicalEye;
+                case NPCID.Retinazer: return ItemID.MechanicalEye;
+                case NPCID.SkeletronPrime: return ItemID.MechanicalSkull;
+                case NPCID.TheDestroyer: return ItemID.MechanicalWorm;
+                case NPCID.DukeFishron: return ItemID.TruffleWorm;
+                case NPCID.HallowBoss: return ItemID.EmpressButterfly;
+                case NPCID.Golem: return ItemID.LihzahrdPowerCell;
+                case NPCID.MoonLordCore: return ItemID.CelestialSigil;
             }
         }
 
@@ -110,30 +118,38 @@ namespace Luciful
 
         public static void OnDespawn(NPC npc)
         {
+            bool? dropSpawnItem = null;
             Luciful instance = Luciful.Instance;
-            int? summonItem = GetSummonItem(npc);
-            if (summonItem != null)
+            if (npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer)
+                if ((NPCHelper.GetNPCCount(NPCID.Spazmatism) + NPCHelper.GetNPCCount(NPCID.Retinazer)) == 1)
+                    dropSpawnItem = true;
+            if (dropSpawnItem == null)
+                if (NPCHelper.GetNPCCount(npc.type) == 1) dropSpawnItem = true;
+            if (dropSpawnItem != null && dropSpawnItem.Value)
             {
-                Vector2 itemPosition = npc.position;
-                float newY = LocationHelper.GetNearestPlayer(npc.position).position.Y;
-                Main.NewText(LocationHelper.GetNearestPlayer(npc.position).name);
-                if (newY < itemPosition.Y) itemPosition.Y = newY;
-                Tile tile = Framing.GetTileSafely(itemPosition);
-                if (tile.HasTile)
+                int? summonItem = GetSummonItem(npc);
+                if (summonItem != null)
                 {
-                    while (tile.HasTile)
+                    Vector2 itemPosition = npc.position;
+                    float newY = LocationHelper.GetNearestPlayer(npc.position).position.Y;
+                    if (newY < itemPosition.Y) itemPosition.Y = newY;
+                    Tile tile = Framing.GetTileSafely(itemPosition);
+                    if (tile.HasTile)
                     {
-                        itemPosition.Y++;
-                        tile = Framing.GetTileSafely(itemPosition);
+                        while (tile.HasTile)
+                        {
+                            itemPosition.Y++;
+                            tile = Framing.GetTileSafely(itemPosition);
+                        }
                     }
-                }
 
-                Item.NewItem(npc.GetSource_DropAsItem(), itemPosition, (int)summonItem);
-            }
-            if (npc.boss)
-            {
-                instance.bossesAlive--;
-                //if (instance.bossesAlive == 0) instance.bossBorder = null;
+                    Item.NewItem(npc.GetSource_DropAsItem(), itemPosition, (int)summonItem);
+                }
+                if (npc.boss)
+                {
+                    instance.bossesAlive--;
+                    //if (instance.bossesAlive == 0) instance.bossBorder = null;
+                }
             }
         }
     }

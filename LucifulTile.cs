@@ -31,7 +31,5 @@ namespace Luciful
             }
             return false;
         }
-
-
     }
 }

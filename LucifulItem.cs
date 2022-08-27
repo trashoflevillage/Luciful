@@ -11,7 +11,9 @@ namespace Luciful
         public override bool InstancePerEntity => true;
         public float baseScale;
         public bool scaled = false;
-        
+
+        public int shovelPower = 0;
+
         public int bonusProjectiles = 0;
         public float projectileSpread = 15f;
         public float speedVariation = 0.3f;
