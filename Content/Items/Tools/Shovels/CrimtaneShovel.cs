@@ -31,7 +31,6 @@ namespace Luciful.Content.Items.Tools.Shovels
             CreateRecipe()
                 .AddIngredient(ItemID.CrimtaneBar, 12)
                 .AddIngredient(ItemID.TissueSample, 6)
-                .AddRecipeGroup(RecipeGroupID.Wood, 3)
                 .AddTile(TileID.Anvils)
                 .AddCondition(Recipe.Condition.InGraveyardBiome)
                 .Register();

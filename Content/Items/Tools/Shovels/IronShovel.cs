@@ -8,10 +8,10 @@ namespace Luciful.Content.Items.Tools.Shovels
 {
     internal class IronShovel : ModItem
     {
-        public override async void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Iron Shovel");
-            Tooltip.SetDefault("Replacement for the Gravedigger's Shovel\nDigs in a bigger area than a pickaxe\nOnly digs soft tiles");
+            Tooltip.SetDefault("Replacement for the Gravedigger's Shovel\nDigs in a bigger area than a pickaxe\nOnly digs up soft tiles");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -33,6 +33,9 @@ namespace Luciful.Content.Items.Tools.Shovels
                 .AddRecipeGroup(RecipeGroupID.Wood, 3)
                 .AddTile(TileID.Anvils)
                 .AddCondition(Recipe.Condition.InGraveyardBiome)
+                .Register();
+            CreateRecipe()
+                .AddIngredient(ItemID.GravediggerShovel)
                 .Register();
         }
     }

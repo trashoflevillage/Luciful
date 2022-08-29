@@ -11,7 +11,7 @@ namespace Luciful.Content.Items.Tools.Shovels
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gold Shovel");
-            Tooltip.SetDefault("Digs in a bigger area than a pickaxe\nOnly digs soft tiles");
+            Tooltip.SetDefault("Digs in a bigger area than a pickaxe\nOnly digs up soft tiles");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

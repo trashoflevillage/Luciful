@@ -25,6 +25,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Global\GlobalTiles\" />
+    <Folder Include="Content\Items\Consumables\Potions\" />
+    <Folder Include="Content\Items\Materials\" />
     <Folder Include="Content\Items\Placeables\Wood\" />
     <Folder Include="Content\Tiles\Wood\" />
   </ItemGroup>

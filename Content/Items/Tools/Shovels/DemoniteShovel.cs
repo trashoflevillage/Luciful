@@ -31,7 +31,6 @@ namespace Luciful.Content.Items.Tools.Shovels
             CreateRecipe()
                 .AddIngredient(ItemID.DemoniteBar, 12)
                 .AddIngredient(ItemID.ShadowScale, 6)
-                .AddRecipeGroup(RecipeGroupID.Wood, 3)
                 .AddTile(TileID.Anvils)
                 .AddCondition(Recipe.Condition.InGraveyardBiome)
                 .Register();

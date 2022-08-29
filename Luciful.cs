@@ -1,6 +1,5 @@
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using Luciful.Content.NPCs.Bosses;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;

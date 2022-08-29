@@ -3,7 +3,6 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.ItemDropRules;
 using System.Collections.Generic;
-using Luciful.Content.NPCs.Bosses;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Luciful.Common.Systems.Util;
@@ -78,15 +77,6 @@ namespace Luciful
                     npc.DropItemInstanced(npc.position, npc.Size, essenceItem.Value, 5, true);
                 }
             }*/
-        }
-
-        public static BossBorder GetBossBorder(NPC npc)
-        {
-            switch (npc.type)
-            {
-                default: return null;
-                case NPCID.EyeofCthulhu: return new BossBorder(2000, DustID.SpectreStaff, npc.position);
-            }
         }
 
         public static int? GetSummonItem(NPC npc)

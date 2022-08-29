@@ -13,6 +13,7 @@ namespace Luciful
         public bool scaled = false;
 
         public int shovelPower = 0;
+        public bool autoSift = false;
 
         public int bonusProjectiles = 0;
         public float projectileSpread = 15f;
