@@ -9,6 +9,7 @@ using Luciful.Common.Systems.Util;
 using Luciful.Common.Systems.Util.LootHelper;
 using Terraria.DataStructures;
 using System;
+using Terraria.ID;
 
 namespace Luciful.Common.Global.GlobalItems
 {
@@ -48,27 +49,25 @@ namespace Luciful.Common.Global.GlobalItems
                 {
                     Grid mineGrid = new(new Point(mouse.X - 1, mouse.Y - 1), new Point(mouse.X + 1, mouse.Y + 1));
                     Point currentLoc = mineGrid.currentPos;
+                    Random rng = new Random();
                     for (int i = 0; i < 9; i++)
                     {
-                        bool siftTile = false;
                         tile = Main.tile[currentLoc.X, currentLoc.Y];
 
-                        if ((modItem.shovelPower >= 35 || TileHelper.IsSoft(tile))
+                        if ((modItem.shovelPower >= 35 || TileHelper.IsSoft(tile) && tile.HasTile)
                             && player.IsInTileInteractionRange(currentLoc.X, currentLoc.Y))
-                            
-                            if (modItem.autoSift)
-                                if (TileHelper.GetSiftables().Contains(tile.TileType))
-                                    siftTile = true;
-
-                        if (!siftTile) player.PickTile(currentLoc.X, currentLoc.Y, modItem.shovelPower);
-                        else
-                        {
-                            Random rng = new Random();
-                            Loot loot = TileHelper.TrySiftTile(tile);
-                            Item.NewItem(new EntitySource_TileBreak(currentLoc.X, currentLoc.Y), currentLoc.X, currentLoc.Y, 0, 0,
-                                loot.item, rng.Next(loot.maxQuantity - (loot.minQuantity + 1)) + loot.minQuantity + 1);
-                            WorldGen.KillTile(currentLoc.X, currentLoc.Y, false, false, true);
-                        }
+                            if (!modItem.autoSift) player.PickTile(currentLoc.X, currentLoc.Y, modItem.shovelPower);
+                            else
+                            {
+                                Loot loot = TileHelper.TrySiftTile(tile);
+                                if (loot != null)
+                                {
+                                    Main.NewText(loot.item + ", " + loot.minQuantity + "-" + loot.maxQuantity);
+                                    Item.NewItem(new EntitySource_TileBreak(currentLoc.X, currentLoc.Y), currentLoc.X * 16, currentLoc.Y * 16, 32, 32,
+                                        loot.item, rng.Next(loot.maxQuantity - (loot.minQuantity + 1)) + loot.minQuantity + 1);
+                                    WorldGen.KillTile(currentLoc.X, currentLoc.Y, false, false, true);
+                                }
+                            }
                         currentLoc = mineGrid.nextPos().Value;
                     }
                     return true;

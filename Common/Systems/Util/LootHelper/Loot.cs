@@ -11,7 +11,6 @@ namespace Luciful.Common.Systems.Util.LootHelper
         public short item;
         public int minQuantity;
         public int maxQuantity;
-        float chance;
         public int weight;
 
         public Loot(short item, int minQuantity, int maxQuantity, float chance)
@@ -19,7 +18,6 @@ namespace Luciful.Common.Systems.Util.LootHelper
             this.item = item;
             this.minQuantity = minQuantity;
             this.maxQuantity = maxQuantity;
-            this.chance = chance;
             weight = (int)(chance * 1000);
         }
     }
