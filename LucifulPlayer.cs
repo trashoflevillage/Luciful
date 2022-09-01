@@ -94,6 +94,10 @@ namespace Luciful
             }*/
         }
 
+        public override void PreUpdateMovement()
+        {
+        }
+
         public override void PreUpdateBuffs()
         {
             foreach (int buff in infiniteBuffs)
