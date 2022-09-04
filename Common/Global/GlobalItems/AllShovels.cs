@@ -37,6 +37,16 @@ namespace Luciful.Common.Global.GlobalItems
             }
         }
 
+        public override void HoldItem(Item item, Player player)
+        {
+            LucifulItem modItem = LucifulItem.Convert(item);
+
+            Point mouse = Main.MouseWorld.ToTileCoordinates();
+            
+            if (player.IsInTileInteractionRange(mouse.X, mouse.Y))
+                player.cursorItemIconID = player.HeldItem.type;
+        }
+
         public override bool? UseItem(Item item, Player player)
         {
             LucifulItem modItem = LucifulItem.Convert(item);
@@ -62,7 +72,6 @@ namespace Luciful.Common.Global.GlobalItems
                                 Loot loot = TileHelper.TrySiftTile(tile);
                                 if (loot != null)
                                 {
-                                    Main.NewText(loot.item + ", " + loot.minQuantity + "-" + loot.maxQuantity);
                                     Item.NewItem(new EntitySource_TileBreak(currentLoc.X, currentLoc.Y), currentLoc.X * 16, currentLoc.Y * 16, 32, 32,
                                         loot.item, rng.Next(loot.maxQuantity - (loot.minQuantity + 1)) + loot.minQuantity + 1);
                                     WorldGen.KillTile(currentLoc.X, currentLoc.Y, false, false, true);

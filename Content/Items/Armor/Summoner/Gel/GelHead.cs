@@ -13,7 +13,7 @@ namespace Luciful.Content.Items.Armor.Summoner.Gel
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Gel Helmet");
+            DisplayName.SetDefault("Gel Bandana");
             Tooltip.SetDefault("Increases minion damage by 2%\nIncreases maximum mana by 20");
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
