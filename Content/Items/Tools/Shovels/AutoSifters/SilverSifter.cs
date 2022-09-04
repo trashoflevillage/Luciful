@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Luciful.Content.Items.Placeables.Bars;
+using Microsoft.Xna.Framework;
 
 namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
 {
@@ -23,8 +24,13 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
             modItem.shovelPower = 28;
             modItem.autoSift = true;
 
-            Item.useTime = 16;
-            Item.useAnimation = 16;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.UseSound = SoundID.Item22;
+
+            Item.channel = true;
+
+            Item.useTime = 30;
+            Item.useAnimation = 30;
         }
 
         public override void AddRecipes()

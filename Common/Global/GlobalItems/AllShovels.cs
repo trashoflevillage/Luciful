@@ -41,10 +41,18 @@ namespace Luciful.Common.Global.GlobalItems
         {
             LucifulItem modItem = LucifulItem.Convert(item);
 
-            Point mouse = Main.MouseWorld.ToTileCoordinates();
-            
-            if (player.IsInTileInteractionRange(mouse.X, mouse.Y))
-                player.cursorItemIconID = player.HeldItem.type;
+            if (modItem.shovelPower > 0)
+            {
+                player.cursorItemIconID = -1;
+                Point mouse = Main.MouseWorld.ToTileCoordinates();
+
+                if (player.IsInTileInteractionRange(mouse.X, mouse.Y))
+                {
+                    player.cursorItemIconID = player.HeldItem.type;
+                    player.cursorItemIconText = "";
+                    player.cursorItemIconEnabled = true;
+                }
+            }
         }
 
         public override bool? UseItem(Item item, Player player)

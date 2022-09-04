@@ -85,13 +85,13 @@ namespace Luciful
 
         public override void PostUpdate()
         {
-            Luciful instance = Luciful.Instance;
-            Player player = Player;
-            /*if (instance.bossBorder != null)
-            {
-                bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
-                if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
-            }*/
+            /*Luciful instance = Luciful.Instance;
+             Player player = Player;
+             if (instance.bossBorder != null)
+             {
+                 bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
+                 if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
+             }*/
         }
 
         public override void PreUpdateMovement()
@@ -100,10 +100,14 @@ namespace Luciful
 
         public override void PreUpdateBuffs()
         {
-            foreach (int buff in infiniteBuffs)
+            if (Player.HasBuff(BuffID.PotionSickness))
+                if (Player.buffTime[Player.FindBuffIndex(BuffID.PotionSickness)] == 1)
+                    SoundEngine.PlaySound(SoundID.MaxMana);
+
+            /*foreach (int buff in infiniteBuffs)
             {
                 Player.AddBuff(buff, 1);
-            }
+            }*/
         }
 
         public override void OnRespawn(Player player)

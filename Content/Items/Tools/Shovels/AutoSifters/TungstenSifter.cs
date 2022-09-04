@@ -26,8 +26,10 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.UseSound = SoundID.Item22;
 
-            Item.useTime = 16;
-            Item.useAnimation = 16;
+            Item.channel = true;
+
+            Item.useTime = 30;
+            Item.useAnimation = 30;
         }
 
         public override void AddRecipes()
