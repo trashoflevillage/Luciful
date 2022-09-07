@@ -29,7 +29,7 @@ namespace Luciful.Content.Projectiles.Arrows
 			Projectile.penetrate = 3; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
 			Projectile.timeLeft = 600; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
 			Projectile.light = 0.1f; // How much light emit around the projectile
-			Projectile.ignoreWater = false; // Does the projectile's speed be influenced by water?
+			Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
 			Projectile.tileCollide = true; // Can the projectile collide with tiles?
 			Projectile.extraUpdates = 1; // Set to above 0 if you want the projectile to update multiple time in a frame
 

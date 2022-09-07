@@ -47,7 +47,7 @@ namespace Luciful.Content.NPCs.Slime.HardmodeOre
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ItemID.TitaniumOre, 1, 5, 18));
+            npcLoot.Add(ItemDropRule.Common(ItemID.TitaniumOre, 1, 1, 5));
         }
         
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
