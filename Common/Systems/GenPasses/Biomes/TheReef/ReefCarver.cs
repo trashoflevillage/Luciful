@@ -51,8 +51,6 @@ namespace Luciful.Common.Systems.GenPasses.Biomes.TheReef
                 tile = Framing.GetTileSafely(pos);
             }
 
-            int origX = pos.X;
-
             WorldGen.PlaceTile(pos.X, pos.Y, TileID.SolarBrick, false, true);
 
             attempts = 0;
@@ -64,7 +62,6 @@ namespace Luciful.Common.Systems.GenPasses.Biomes.TheReef
                 attempts++;
                 oceanX = i;
             }
-            WorldGen.PlaceTile(oceanX, pos.Y, TileID.VortexBrick, false, true);
 
             Point mod = pos;
             if (dungeonOnLeft)
@@ -74,6 +71,7 @@ namespace Luciful.Common.Systems.GenPasses.Biomes.TheReef
             for (int i = mod.Y; i > mod.Y - 100; i--)
                 WorldGen.PlaceTile(pos.X, i, TileID.SolarBrick, false, true);
             WorldGen.PlaceTile(pos.X, pos.Y, TileID.NebulaBrick, false, true);
+            WorldGen.PlaceTile(oceanX, pos.Y, TileID.VortexBrick, false, true);
         }
     }
 }

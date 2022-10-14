@@ -23,7 +23,7 @@ namespace Luciful.Content.Buffs
 			modPlayer.cursedSparkTick++;
 			if (modPlayer.cursedSparkTick > 59)
 			{
-				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + "couldn't put the fire out."), 8, 0, false, false);
+				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " couldn't put the fire out."), 8, 0, false, false);
 				modPlayer.cursedSparkTick = 0;
 			}
 			Dust.NewDust(player.position, player.width, player.height, DustID.CursedTorch);

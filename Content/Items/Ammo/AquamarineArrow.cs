@@ -10,7 +10,7 @@ namespace Luciful.Content.Items.Ammo
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Whirlpool Arrow"); // The item's description, can be set to whatever you want.
-			Tooltip.SetDefault("Bounces back after hitting a wall\nDoes not attempt to bounce towards enemies\nIgnores water"); // The item's description, can be set to whatever you want.
+			Tooltip.SetDefault("Bounces back after hitting a wall\nDoes not attempt to bounce towards enemies\nUnaffected by water"); // The item's description, can be set to whatever you want.
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
