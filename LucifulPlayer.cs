@@ -23,12 +23,7 @@ namespace Luciful
 
         public int healingPotency = 0;
 
-        // Infliction of buffs/debuffs
-
-        public List<int> infiniteBuffs = new List<int>();
-
-        public int inflictDilutedIchor = 0;
-        public int inflictCursedSpark = 0;
+        public bool firstStrikeBenefits = false;
 
         // Tick variables
 
@@ -38,44 +33,36 @@ namespace Luciful
         {
             // General stat increases
 
-            this.bonusMeleeSpeed = 0f;
-            this.bonusMagicSpeed = 0f;
-            this.bonusRangedSpeed = 0f;
-            this.bonusSummonSpeed = 0f;
+            bonusMeleeSpeed = 0f;
+            bonusMagicSpeed = 0f;
+            bonusRangedSpeed = 0f;
+            bonusSummonSpeed = 0f;
 
-            this.meleeWeaponScale = 0f;
-            this.magicWeaponScale = 0f;
-            this.rangedWeaponScale = 0f;
-            this.summonWeaponScale = 0f;
+            meleeWeaponScale = 0f;
+            magicWeaponScale = 0f;
+            rangedWeaponScale = 0f;
+            summonWeaponScale = 0f;
 
-            this.healingPotency = 0;
+            healingPotency = 0;
 
-            // Infliction of buffs/debuffs
-
-            this.inflictDilutedIchor = 0;
-            this.inflictCursedSpark = 0;
-
+            firstStrikeBenefits = false;
         }
 
         // Everything past here is not for the setting and resetting of variables.
 
-        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            HitNpc(target, damage, knockback, crit);
+            ModifyHit(target, ref damage, ref knockback, ref crit);
         }
 
-        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            HitNpc(target, damage, knockback, crit);
+            ModifyHit(target, ref damage, ref knockback, ref crit);
         }
 
-        public void HitNpc(NPC target, int damage, float knockback, bool crit)
+        public void ModifyHit(NPC target, ref int damage, ref float knockback, ref bool crit) 
         {
-            if (inflictDilutedIchor > 0)
-                target.AddBuff(ModContent.BuffType<Content.Buffs.DilutedIchor>(), inflictDilutedIchor);
-
-            if (inflictCursedSpark > 0)
-                target.AddBuff(ModContent.BuffType<Content.Buffs.CursedSpark>(), inflictCursedSpark);
+            if (firstStrikeBenefits && target.life == target.lifeMax) crit = true;
         }
 
         public static LucifulPlayer Convert(Player player)
@@ -85,13 +72,6 @@ namespace Luciful
 
         public override void PostUpdate()
         {
-            /*Luciful instance = Luciful.Instance;
-             Player player = Player;
-             if (instance.bossBorder != null)
-             {
-                 bool insideBossBorder = instance.bossBorder.ContainsPosition(player.position);
-                 if (!insideBossBorder) player.AddBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>(), 1);
-             }*/
         }
 
         public override void PreUpdateMovement()
@@ -100,19 +80,10 @@ namespace Luciful
 
         public override void PreUpdateBuffs()
         {
-            if (Player.HasBuff(BuffID.PotionSickness))
-                if (Player.buffTime[Player.FindBuffIndex(BuffID.PotionSickness)] == 1)
-                    SoundEngine.PlaySound(SoundID.MaxMana);
-
-            /*foreach (int buff in infiniteBuffs)
-            {
-                Player.AddBuff(buff, 1);
-            }*/
         }
 
         public override void OnRespawn(Player player)
         {
-            infiniteBuffs.Clear();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Luciful.Content.Items.Weapons.Magic
 
 			Item.damage = 15;
 			Item.shootSpeed *= 0.90f;
-			Item.mana = 15;
+			Item.mana = 5;
 			Item.rare = ItemRarityID.Blue;
 		}
 

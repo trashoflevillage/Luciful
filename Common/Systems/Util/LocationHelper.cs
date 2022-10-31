@@ -30,6 +30,29 @@ namespace Luciful.Common.Systems.Util
             }
             return nearestPlayer;
         }
+        public static NPC GetNearestNPC(Vector2 position, bool noFriendly = false, NPC exclusion = null)
+        {
+            float? lastDistance = null;
+            NPC nearestNPC = null;
+            foreach (NPC i in Main.npc)
+            {
+                if (i != exclusion && (!noFriendly || !i.friendly))
+                {
+                    if (nearestNPC != null && i.position.Distance(position) < lastDistance)
+                    {
+                        lastDistance = i.position.Distance(position);
+                        nearestNPC = i;
+                    }
+                    if (nearestNPC == null)
+                    {
+                        lastDistance = i.position.Distance(position);
+                        nearestNPC = i;
+                    }
+                }
+            }
+            return nearestNPC;
+        }
+
         public static Player GetNearestPlayer(Point position)
         {
             return GetNearestPlayer(new Vector2(position.X, position.Y));

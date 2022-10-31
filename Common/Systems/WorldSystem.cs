@@ -30,11 +30,11 @@ namespace Luciful.Common.Systems
                 tasks.Insert(slushIndex + 1, new EvilOreGenPass("Inflating the evil economy", 320f));
             /* Since the goal of this GenPass is to increase the abundance of the evil ore in evil biomes, it is used in the slush index because
                 the world doesn't generate corruption until after ores are generated, whereas slush is immediately after corruption.*/
-            int beachIndex = tasks.FindIndex(t => t.Name.Equals("Final Cleanup"));
+            /*int beachIndex = tasks.FindIndex(t => t.Name.Equals("Final Cleanup"));
             if (beachIndex != -1)
             {
                 tasks.Insert(beachIndex - 1, new ReefCarver("Extending the ocean", 10f));
-            }
+            }*/
         }
     }
 }

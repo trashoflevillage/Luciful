@@ -22,6 +22,7 @@ namespace Luciful.Content.Projectiles.Magic
 
 			Projectile.penetrate = 6;
 			Projectile.light = 0.4f;
+			Projectile.damage = 10;
 		}
 
 		public override void Kill(int timeLeft)
@@ -30,7 +31,7 @@ namespace Luciful.Content.Projectiles.Magic
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(1, 100) < 3) Item.NewItem(target.GetSource_Loot(), target.position, 1, 1, ItemID.Star);
+			if (Main.rand.Next(1, 20) < 3) Item.NewItem(target.GetSource_Loot(), target.Center, 1, 1, ItemID.Star);
 		}
     }
 }
