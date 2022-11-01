@@ -29,16 +29,16 @@ namespace Luciful.Common.Systems.Util
             switch (tier)
             {
                 case 0:
-                    if (WorldGen.SavedOreTiers.Cobalt == TileID.Cobalt) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.CobaltSlime>();
-                    if (WorldGen.SavedOreTiers.Cobalt == -1) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.PalladiumSlime>();
+                    if (WorldGen.SavedOreTiers.Cobalt == TileID.Cobalt) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.CobaltSlime>();
+                    if (WorldGen.SavedOreTiers.Cobalt == -1) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.PalladiumSlime>();
                     break;
                 case 1:
-                    if (WorldGen.SavedOreTiers.Mythril == TileID.Mythril) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.MythrilSlime>();
-                    if (WorldGen.SavedOreTiers.Mythril == -1) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.OrichalcumSlime>();
+                    if (WorldGen.SavedOreTiers.Mythril == TileID.Mythril) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.MythrilSlime>();
+                    if (WorldGen.SavedOreTiers.Mythril == -1) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.OrichalcumSlime>();
                     break;
                 case 2:
-                    if (WorldGen.SavedOreTiers.Adamantite == TileID.Adamantite) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.AdamantiteSlime>();
-                    if (WorldGen.SavedOreTiers.Adamantite == -1) return ModContent.NPCType<Content.NPCs.Slime.HardmodeOre.TitaniumSlime>();
+                    if (WorldGen.SavedOreTiers.Adamantite == TileID.Adamantite) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.AdamantiteSlime>();
+                    if (WorldGen.SavedOreTiers.Adamantite == -1) return ModContent.NPCType<Content.NPCs.Caverns.HardmodeOre.TitaniumSlime>();
                     break;
             }
             return null;

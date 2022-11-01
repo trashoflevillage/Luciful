@@ -28,6 +28,7 @@
     <Folder Include="Content\Items\Consumables\Potions\" />
     <Folder Include="Content\Items\Materials\" />
     <Folder Include="Content\Items\Placeables\Wood\" />
+    <Folder Include="Content\NPCs\Dungeon\" />
     <Folder Include="Content\Projectiles\Melee\" />
     <Folder Include="Content\Tiles\Wood\" />
   </ItemGroup>

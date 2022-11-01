@@ -46,7 +46,7 @@ namespace Luciful.Content.Projectiles.Darts
 				NPC newTarget = LocationHelper.GetNearestNPC(target.position, true, target);
 				if (target.position.Distance(newTarget.position) < 1000f)
 				{
-					Projectile.velocity = (newTarget.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * 15f;
+					Projectile.velocity = (newTarget.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * 35f;
 					Projectile.rotation = Projectile.velocity.ToRotation();
 				}
 			}
