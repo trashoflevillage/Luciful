@@ -11,6 +11,19 @@ namespace Luciful.Common.Systems.Util
 {
     internal class LocationHelper
     {
+
+        public static bool CanSee(Vector2 pos1, Vector2 pos2)
+        {
+            while (pos1.X != pos2.X && pos1.Y != pos2.Y)
+            {
+                if (Framing.GetTileSafely(pos1).HasTile)
+                {
+                    return false;
+                }
+                pos1.MoveTowards(pos2, 1);
+            }
+            return true;
+        }
         public static Player GetNearestPlayer(Vector2 position)
         {
             float? lastDistance = null;

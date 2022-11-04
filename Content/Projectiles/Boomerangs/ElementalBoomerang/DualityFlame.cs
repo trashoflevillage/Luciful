@@ -20,7 +20,7 @@ namespace Luciful.Content.Projectiles.Boomerangs.ElementalBoomerang
 		{
 			Projectile.CloneDefaults(ProjectileID.Flamarang);
 
-			AIType = ProjectileID.Bananarang;
+			AIType = ProjectileID.Flamarang;
 
 			Projectile.damage = 36;
 		}

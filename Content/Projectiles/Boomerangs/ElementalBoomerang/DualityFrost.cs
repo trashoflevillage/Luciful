@@ -18,11 +18,12 @@ namespace Luciful.Content.Projectiles.Boomerangs.ElementalBoomerang
 
 		public override void SetDefaults()
 		{
-			Projectile.CloneDefaults(ProjectileID.Flamarang);
+			Projectile.CloneDefaults(ProjectileID.IceBoomerang);
 
-			AIType = ProjectileID.Bananarang;
+			AIType = ProjectileID.IceBoomerang;
 
 			Projectile.damage = 36;
+			Projectile.extraUpdates = 1;
 		}
 
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -35,8 +36,8 @@ namespace Luciful.Content.Projectiles.Boomerangs.ElementalBoomerang
 			target.AddBuff(BuffID.Frostburn, 180);
 		}
 
-		public override void AI()
-		{
-		}
-	}
+        public override void AI()
+        {
+        }
+    }
 }

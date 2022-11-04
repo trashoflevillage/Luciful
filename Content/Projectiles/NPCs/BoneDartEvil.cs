@@ -10,9 +10,9 @@ using System.Linq;
 using System.Runtime;
 using Luciful.Common.Systems.Util;
 
-namespace Luciful.Content.Projectiles.Darts
+namespace Luciful.Content.Projectiles.NPCs
 {
-	public class BoneDart : ModProjectile
+	public class BoneDartEvil : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -26,22 +26,22 @@ namespace Luciful.Content.Projectiles.Darts
 			Projectile.width = 8; // The width of projectile hitbox
 			Projectile.height = 8; // The height of projectile hitbox
 			Projectile.aiStyle = 1; // The ai style of the projectile, please reference the source code of Terraria
-			Projectile.friendly = true; // Can the projectile deal damage to enemies?
-			Projectile.hostile = false; // Can the projectile deal damage to the player?
-			Projectile.DamageType = DamageClass.Ranged; // Is the projectile shoot by a ranged weapon?
+			Projectile.friendly = false; // Can the projectile deal damage to enemies?
+			Projectile.hostile = true; // Can the projectile deal damage to the player?
 			Projectile.penetrate = 2; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
 			Projectile.timeLeft = 600; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
 			Projectile.light = 0.1f; // How much light emit around the projectile
 			Projectile.ignoreWater = false; // Does the projectile's speed be influenced by water?
 			Projectile.tileCollide = true; // Can the projectile collide with tiles?
-			Projectile.usesLocalNPCImmunity = true;
+			Projectile.damage = 13;
+			Projectile.usesLocalNPCImmunity = false;
 
 			AIType = ProjectileID.PoisonDartBlowgun; // Act exactly like default Bullet
 		}
-
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-			target.AddBuff(ModContent.BuffType<Buffs.FragileBones>(), 300);
+		
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+		{
+			if (Main.expertMode) target.AddBuff(ModContent.BuffType<Buffs.FragileBones>(), 300);
 		}
 
         public override bool OnTileCollide(Vector2 oldVelocity)
