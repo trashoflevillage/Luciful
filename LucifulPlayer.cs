@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.Audio;
 using System.Collections.Generic;
+using System;
 
 namespace Luciful
 {
@@ -72,6 +73,9 @@ namespace Luciful
 
         public override void PostUpdate()
         {
+            if (Player.statDefense > 0 && Player.HasBuff(ModContent.BuffType<Content.Buffs.FragileBones>())) {
+                Player.statDefense -= Math.Clamp(Player.statDefense/2 - (Player.statDefense/2 * Player.statLife / Player.statLifeMax2), 0, Player.statDefense/2);
+            }
         }
 
         public override void PreUpdateMovement()

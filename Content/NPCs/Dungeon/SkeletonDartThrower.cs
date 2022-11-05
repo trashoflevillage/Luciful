@@ -65,8 +65,8 @@ namespace Luciful.Content.NPCs.Dungeon
 
         public override void SetDefaults()
         {
-            NPC.width = 40;
-            NPC.height = 54;
+            NPC.width = 18;
+            NPC.height = 40;
 
             NPC.HitSound = SoundID.NPCHit2;
             NPC.DeathSound = SoundID.NPCDeath2;
@@ -91,9 +91,12 @@ namespace Luciful.Content.NPCs.Dungeon
                 ModContent.ItemType<Items.Weapons.Ranged.DungeonDartRifle>()
             };
             npcLoot.Add(ItemDropRule.NormalvsExpertOneFromOptions(100, 75, weaponDrops));
-            npcLoot.Add(ItemDropRule.NormalvsExpert(ModContent.ItemType<Items.Accessories.Combat.MarkedSkull>(), 50, 25));
             npcLoot.Add(ItemDropRule.Common(ItemID.Bone, 1, 2, 6));
-            npcLoot.Add(ItemDropRule.Common(ItemID.GoldenKey, 1, 2, 6));
+            npcLoot.Add(ItemDropRule.Common(ItemID.GoldenKey, 65, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.BoneWand, 250, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.ClothierVoodooDoll, 303, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.AncientNecroHelmet, 454, 1, 1));
+            npcLoot.Add(ItemDropRule.Common(ItemID.TallyCounter, 100, 1, 1));
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -125,6 +128,17 @@ namespace Luciful.Content.NPCs.Dungeon
             }
             for (int i = 0; i < Main.rand.Next(5)+5; i++) 
                 Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Bone);
+        }
+        
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (spawnInfo.Player.ZoneDungeon && NPC.CountNPCS(ModContent.NPCType<SkeletonDartThrower>()) < 3)
+            {
+                // Can only spawn if there are no other ExampleZombieThiefs
+                return SpawnCondition.DungeonNormal.Chance;
+            }
+
+            return 0f;
         }
 
         public override void AI()
