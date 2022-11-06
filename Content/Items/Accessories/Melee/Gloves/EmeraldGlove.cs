@@ -2,6 +2,8 @@
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Luciful.Common.Systems.Util;
+using Terraria.Utilities;
 
 namespace Luciful.Content.Items.Accessories.Melee.Gloves
 {
@@ -23,7 +25,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
             Item.accessory = true;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(silver: 27);
-            Item.vanity = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.Audio;
 using System.Collections.Generic;
 using System;
+using System.Collections;
 
 namespace Luciful
 {
@@ -30,6 +31,10 @@ namespace Luciful
 
         public int cursedSparkTick = 0;
 
+        // Equipment
+        
+        public ArrayList accessories = new ArrayList();
+
         public override void ResetEffects()
         {
             // General stat increases
@@ -47,6 +52,8 @@ namespace Luciful
             healingPotency = 0;
 
             firstStrikeBenefits = false;
+
+            accessories.Clear();
         }
 
         // Everything past here is not for the setting and resetting of variables.
@@ -64,6 +71,8 @@ namespace Luciful
         public void ModifyHit(NPC target, ref int damage, ref float knockback, ref bool crit) 
         {
             if (firstStrikeBenefits && target.life == target.lifeMax) crit = true;
+            if (accessories.Contains(ModContent.ItemType<Content.Items.Accessories.Combat.ShadowEye>()))
+                if (target.life <= target.lifeMax / 4) crit = true;
         }
 
         public static LucifulPlayer Convert(Player player)

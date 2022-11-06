@@ -2,6 +2,8 @@
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Utilities;
+using Luciful.Common.Systems.Util;
 
 namespace Luciful.Content.Items.Accessories.Combat
 {
@@ -10,7 +12,7 @@ namespace Luciful.Content.Items.Accessories.Combat
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Marked Skull");
-            Tooltip.SetDefault("When attacking an enemy with full health, you are guaranteed to get a critical strike\n+5% critical strike chance");
+            Tooltip.SetDefault("When attacking an enemy with full health, you are guaranteed to land a critical strike\n+5% critical strike chance");
             
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
@@ -22,7 +24,7 @@ namespace Luciful.Content.Items.Accessories.Combat
             Item.accessory = true;
             Item.rare = ItemRarityID.Orange;
             Item.value = Item.sellPrice(gold: 5);
-            Item.vanity = true;
+            Item.maxStack = 1;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

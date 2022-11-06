@@ -7,6 +7,7 @@ using Terraria.IO;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.Utilities;
 
 namespace Luciful.Common.Global.GlobalItems
 {

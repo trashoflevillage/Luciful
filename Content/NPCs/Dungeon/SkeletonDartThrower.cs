@@ -134,10 +134,8 @@ namespace Luciful.Content.NPCs.Dungeon
         {
             if (spawnInfo.Player.ZoneDungeon && NPC.CountNPCS(ModContent.NPCType<SkeletonDartThrower>()) < 3)
             {
-                // Can only spawn if there are no other ExampleZombieThiefs
                 return SpawnCondition.DungeonNormal.Chance;
             }
-
             return 0f;
         }
 
