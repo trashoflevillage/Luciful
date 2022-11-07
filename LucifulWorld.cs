@@ -5,6 +5,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
+using Terraria.WorldBuilding;
 
 namespace Luciful
 {
@@ -55,6 +56,11 @@ namespace Luciful
         }
         public override void AddRecipeGroups()
         {
+        }
+
+        public override void ModifyHardmodeTasks(List<GenPass> list)
+        {
+            list.Add(new Common.Systems.GenPasses.Chests.CobaltChest("Generating Cobalt Chests", 1f));
         }
     }
 }

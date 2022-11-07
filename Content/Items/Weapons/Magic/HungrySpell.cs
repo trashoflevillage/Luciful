@@ -11,7 +11,7 @@ namespace Luciful.Content.Items.Weapons.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The Hungry");
+			DisplayName.SetDefault("Tome of Hunger");
 			Tooltip.SetDefault("Summons a hungry, fleshy mass that will munch on anything in its path\nEnemies have a chance of dropping hearts when struck");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -22,12 +22,12 @@ namespace Luciful.Content.Items.Weapons.Magic
 			Item.shoot = ModContent.ProjectileType<Projectiles.Magic.HungryTome.Hungry>();
 			Item.shootSpeed = 35;
 
-			Item.damage = 65;
+			Item.damage = 90;
 			Item.DamageType = DamageClass.Magic;
 			Item.mana = 50;
 			Item.rare = ItemRarityID.LightRed;
 			Item.autoReuse = true;
-			Item.UseSound = SoundID.NPCHit8;
+			Item.UseSound = SoundID.NPCHit9;
 			Item.useTime = 35;
 			Item.useAnimation = 35;
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -40,8 +40,9 @@ namespace Luciful.Content.Items.Weapons.Magic
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{
-			velocity.X *= 0.1f;
-			velocity.Y *= 0.1f;
+			velocity.X *= 0.65f;
+			velocity.Y *= 0.65f;
+			knockback += 1;
 			base.ModifyShootStats(player, ref position, ref velocity, ref type, ref damage, ref knockback);
         }
     }

@@ -6,6 +6,7 @@ using Terraria.Audio;
 using System.Collections.Generic;
 using System;
 using System.Collections;
+using Microsoft.Xna.Framework;
 
 namespace Luciful
 {
@@ -34,6 +35,9 @@ namespace Luciful
         // Equipment
         
         public ArrayList accessories = new ArrayList();
+
+        // Positions
+        public Vector2? deathPos = null;
 
         public override void ResetEffects()
         {
@@ -97,6 +101,12 @@ namespace Luciful
 
         public override void OnRespawn(Player player)
         {
+        }
+
+        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        {
+            deathPos = Player.position;
+            return base.PreKill(damage, hitDirection, pvp, ref playSound, ref genGore, ref damageSource);
         }
     }
 }

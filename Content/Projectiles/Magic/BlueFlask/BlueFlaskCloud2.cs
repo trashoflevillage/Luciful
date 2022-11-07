@@ -29,7 +29,7 @@ namespace Luciful.Content.Projectiles.Magic.BlueFlask
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(1, 20) < 3) Item.NewItem(target.GetSource_Loot(), target.Center, 1, 1, ItemID.Star);
+            if (Main.rand.Next(1, 20) < 3 && target.type != NPCID.TargetDummy) Item.NewItem(target.GetSource_Loot(), target.Center, 1, 1, ItemID.Star);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Luciful.Content.Projectiles.Magic.HungryTome
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.penetrate = -1;
-            Projectile.damage = 65;
+            Projectile.damage = 90;
             Projectile.height = 30;
             Projectile.width = 30;
         }
@@ -35,17 +35,22 @@ namespace Luciful.Content.Projectiles.Magic.HungryTome
         {
             Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, Projectile.velocity, 132);
             Gore.NewGore(Projectile.GetSource_Death(), Projectile.position, Projectile.velocity, 133);
+            SoundStyle sound;
+            if (Main.rand.NextBool()) sound = SoundID.NPCDeath11;
+            else sound = SoundID.NPCDeath12;
+            SoundEngine.PlaySound(sound, Projectile.position);
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(1, 20) <= 1) Item.NewItem(target.GetSource_Loot(), target.Center, 1, 1, ItemID.Heart);
+            if (Main.rand.Next(1, 20) <= 1 && target.type != NPCID.TargetDummy) Item.NewItem(target.GetSource_Loot(), target.Center, 1, 1, ItemID.Heart);
         }
 
         public override void AI()
         {
+            Projectile.rotation = Projectile.velocity.ToRotation();
             nextFrame++;
-            if (nextFrame >= 20)
+            if (nextFrame >= 10)
             {
                 nextFrame = 0;
                 Projectile.frame++;
