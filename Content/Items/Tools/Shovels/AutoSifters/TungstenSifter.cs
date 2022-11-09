@@ -33,6 +33,8 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
             Item.useTime = 30;
             Item.shootSpeed = 30;
             Item.useAnimation = 30;
+            Item.damage = 0;
+            Item.noMelee = true;
             Item.useTurn = false;
         }
 
@@ -48,6 +50,11 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
             type = ProjectileID.None;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2, 0);
         }
     }
 }
