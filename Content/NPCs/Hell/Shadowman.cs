@@ -72,7 +72,7 @@ namespace Luciful.Content.NPCs.Hell
         {
             if (spawnInfo.Player.ZoneUnderworldHeight && NPC.CountNPCS(ModContent.NPCType<Shadowman>()) < 1)
             {
-                return .12f;
+                return .08f;
             }
             return 0f;
         }

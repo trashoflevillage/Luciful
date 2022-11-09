@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria.WorldBuilding;
+using Terraria.ID;
 
 namespace Luciful
 {

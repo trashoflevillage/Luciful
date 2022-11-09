@@ -21,7 +21,7 @@ namespace Luciful.Common.Systems.GenPasses.Chests
         {
 			LootTable primaryItems = new LootTable(new Loot[] { 
 				new Loot((short)ModContent.ItemType<Content.Items.Weapons.Magic.HungrySpell>(), 1, 1, 1),
-				new Loot((short)ModContent.ItemType<Content.Items.Tools.Misc.CursedMirror>(), 1, 1, 1),
+				new Loot((short)ModContent.ItemType<Content.Items.Tools.Special.CursedMirror>(), 1, 1, 1),
 				new Loot(ItemID.LavaCharm, 1, 1, 1)
 			});
 
