@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Luciful.Content.Items.Placeables.Bars;
+using Microsoft.Xna.Framework;
 
 namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
 {
@@ -23,13 +24,16 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
             modItem.shovelPower = 28;
             modItem.autoSift = true;
 
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.UseSound = SoundID.Item22;
 
             Item.channel = true;
 
             Item.useTime = 30;
+            Item.shootSpeed = 30;
             Item.useAnimation = 30;
+            Item.useTurn = false;
         }
 
         public override void AddRecipes()
@@ -39,6 +43,11 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
                 .AddTile(TileID.Anvils)
                 .AddTile(TileID.TinkerersWorkbench)
                 .Register();
+        }
+
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+        {
+            type = ProjectileID.None;
         }
     }
 }
