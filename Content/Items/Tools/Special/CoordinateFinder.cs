@@ -6,7 +6,7 @@ using Luciful.Content.Items.Placeables.Bars;
 using Microsoft.Xna.Framework;
 using Luciful.Common.Systems.GenPasses;
 
-namespace Luciful.Content.Items.Tools
+namespace Luciful.Content.Items.Tools.Special
 {
     internal class CoordinateFinder : ModItem
     {

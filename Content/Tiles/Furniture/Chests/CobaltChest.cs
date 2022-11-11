@@ -22,7 +22,7 @@ namespace Luciful.Content.Tiles.Furniture.Chests
 			Main.tileShine[Type] = 1200;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
-			Main.tileOreFinderPriority[Type] = 500;
+			Main.tileOreFinderPriority[Type] = 805;
 			TileID.Sets.HasOutlines[Type] = true;
 			TileID.Sets.BasicChest[Type] = true;
 			TileID.Sets.DisableSmartCursor[Type] = true;

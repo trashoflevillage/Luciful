@@ -3,8 +3,6 @@ using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Luciful.Content.Items.Placeables.Bars;
-using Terraria.DataStructures;
 
 namespace Luciful.Content.Items.Weapons.Ranged
 {
@@ -45,17 +43,11 @@ namespace Luciful.Content.Items.Weapons.Ranged
 		// This method lets you adjust position of the gun in the player's hands. Play with these values until it looks good with your graphics.
 		public override Vector2? HoldoutOffset()
 		{
-			return new Vector2(4.5f, 1.5f);
+			return new Vector2(4.5f, 2f);
 		}
 
 		public override void AddRecipes()
 		{
 		}
-
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-			position.Y -= 0.5f;
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-        }
     }
 }

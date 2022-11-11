@@ -19,12 +19,11 @@ namespace Luciful.Content.Buffs
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.statDefense -= Math.Clamp((player.statDefense / 2) - (player.statDefense / 2 * (player.statLife / player.statLifeMax)), 0, player.statDefense);
 		}
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			npc.defense -= Math.Clamp((npc.defense / 4) - (npc.defense / 4 * (npc.life / npc.lifeMax)), 0, npc.defense);
+			if (npc.defense > 0) npc.defense -= Math.Clamp(npc.defense/3 - (npc.defense/3 * npc.life / npc.lifeMax), 0, npc.defense/3);
 		}
 	}
 }

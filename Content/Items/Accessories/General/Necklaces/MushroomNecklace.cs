@@ -2,6 +2,8 @@
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Luciful.Common.Systems.Util;
+using Terraria.Utilities;
 
 namespace Luciful.Content.Items.Accessories.General.Necklaces
 {
@@ -23,7 +25,8 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
             Item.accessory = true;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(copper: 3);
-            Item.vanity = true;
+            LucifulItem modItem = LucifulItem.Convert(Item);
+
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -4,6 +4,9 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.Audio;
 using System.Collections.Generic;
+using System;
+using System.Collections;
+using Microsoft.Xna.Framework;
 
 namespace Luciful
 {
@@ -29,6 +32,13 @@ namespace Luciful
 
         public int cursedSparkTick = 0;
 
+        // Equipment
+        
+        public ArrayList accessories = new ArrayList();
+
+        // Positions
+        public Vector2? deathPos = null;
+
         public override void ResetEffects()
         {
             // General stat increases
@@ -46,6 +56,8 @@ namespace Luciful
             healingPotency = 0;
 
             firstStrikeBenefits = false;
+
+            accessories.Clear();
         }
 
         // Everything past here is not for the setting and resetting of variables.
@@ -63,6 +75,8 @@ namespace Luciful
         public void ModifyHit(NPC target, ref int damage, ref float knockback, ref bool crit) 
         {
             if (firstStrikeBenefits && target.life == target.lifeMax) crit = true;
+            if (accessories.Contains(ModContent.ItemType<Content.Items.Accessories.Combat.ShadowEye>()))
+                if (target.life <= target.lifeMax / 4) crit = true;
         }
 
         public static LucifulPlayer Convert(Player player)
@@ -72,6 +86,9 @@ namespace Luciful
 
         public override void PostUpdate()
         {
+            if (Player.statDefense > 0 && Player.HasBuff(ModContent.BuffType<Content.Buffs.FragileBones>())) {
+                Player.statDefense -= Math.Clamp(Player.statDefense/2 - (Player.statDefense/2 * Player.statLife / Player.statLifeMax2), 0, Player.statDefense/2);
+            }
         }
 
         public override void PreUpdateMovement()
@@ -84,6 +101,12 @@ namespace Luciful
 
         public override void OnRespawn(Player player)
         {
+        }
+
+        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        {
+            deathPos = Player.position;
+            return base.PreKill(damage, hitDirection, pvp, ref playSound, ref genGore, ref damageSource);
         }
     }
 }

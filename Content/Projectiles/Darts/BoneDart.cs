@@ -29,7 +29,7 @@ namespace Luciful.Content.Projectiles.Darts
 			Projectile.friendly = true; // Can the projectile deal damage to enemies?
 			Projectile.hostile = false; // Can the projectile deal damage to the player?
 			Projectile.DamageType = DamageClass.Ranged; // Is the projectile shoot by a ranged weapon?
-			Projectile.penetrate = 2; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
+			Projectile.penetrate = 1; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
 			Projectile.timeLeft = 600; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
 			Projectile.light = 0.1f; // How much light emit around the projectile
 			Projectile.ignoreWater = false; // Does the projectile's speed be influenced by water?

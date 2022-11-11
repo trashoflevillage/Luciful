@@ -19,8 +19,16 @@ namespace Luciful
         public float projectileSpread = 15f;
         public float speedVariation = 0.3f;
 
+        public bool reforgable = false;
+
         public static LucifulItem Convert(Item item) {
             return item.GetGlobalItem<LucifulItem>();
+        }
+
+        public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+        {
+            LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
+            modPlayer.accessories.Add(item.type);
         }
     }
 }
