@@ -2,6 +2,7 @@
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Luciful.Content.Items.Placeables.Bars;
+using Terraria.Localization;
 
 namespace Luciful.Content.Items.Ammo
 {
