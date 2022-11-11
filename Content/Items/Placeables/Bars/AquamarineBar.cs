@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Luciful.Content.Items.Placeables.Ores;
+using Terraria.Localization;
 
 namespace Luciful.Content.Items.Placeables.Bars
 {
@@ -36,7 +37,7 @@ namespace Luciful.Content.Items.Placeables.Bars
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineOre>(), 4).AddTile(TileID.Hellforge).Register();
+            CreateRecipe().AddIngredient(ModContent.ItemType<AquamarineOre>(), 4).AddTile(TileID.Furnaces).AddCondition(NetworkText.FromLiteral("Merfolk's Study"), r => Luciful.Instance.merfolkStudy).Register();
         }
     }
 }
