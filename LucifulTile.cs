@@ -16,10 +16,12 @@ namespace Luciful
         {
             return AttemptExplode(position.X, position.Y);
         }
+
         public static bool AttemptExplode(Vector2 position)
         {
             return AttemptExplode((int)position.X, (int)position.Y);
         }
+
         public static bool AttemptExplode(int x, int y)
         {
             if (TileLoader.CanExplode(x, y))
@@ -30,6 +32,10 @@ namespace Luciful
                 }
             }
             return false;
+        }
+
+        public override void KillTile(int i, int j, int type, ref bool fail, ref bool effectOnly, ref bool noItem)
+        {
         }
     }
 }

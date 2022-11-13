@@ -19,64 +19,11 @@ namespace Luciful
 
         public override void SetDefaults(NPC npc)
         {
-            Luciful instance = Luciful.Instance;
-            /*
-            if (instance.contractSigned == true && Main.masterMode)
-            {
-                npc.lifeMax = (int) (1.2 * npc.lifeMax);
-                npc.life = (int) (1.2 * npc.lifeMax);
-            }*/
-
-            if (npc.buffImmune[BuffID.Ichor])
-                npc.buffImmune[ModContent.BuffType<Content.Buffs.DilutedIchor>()] = true;
-            if (npc.buffImmune[BuffID.CursedInferno])
-                npc.buffImmune[ModContent.BuffType<Content.Buffs.CursedSpark>()] = true;
-        }
-
-        public override void OnSpawn(NPC npc, IEntitySource source)
-        {
-            LucifulWorld.NPCs.Add(npc);
-            LucifulNPC modNpc = Convert(npc);
-            Luciful instance = Luciful.Instance;
-            if (npc.boss) instance.bossesAlive++;
-            /*
-            if (instance.contractSigned == true && Main.masterMode)
-            {
-                modNpc.contracted = true;
-                BossBorder newBossBorder;
-                if (npc.boss) if (instance.bossBorder == null)
-                    {
-                        newBossBorder = GetBossBorder(npc);
-                        newBossBorder.location = GetNearestPlayer(npc).position;
-                        instance.bossBorder = newBossBorder;
-                    }
-            }
-            else modNpc.contracted = false;*/
         }
 
         public static LucifulNPC Convert(NPC npc)
         {
             return npc.GetGlobalNPC<LucifulNPC>();
-        }
-
-        public override void OnKill(NPC npc)
-        {
-            Luciful instance = Luciful.Instance;
-            /*if (npc.boss && contracted)
-            {
-                instance.bossesAlive--;
-                if (instance.bossesAlive == 0) instance.bossBorder = null;
-                if (!instance.bossesKilled.ContainsKey("defeated" + npc.type)) instance.bossesKilled.Add("defeated" + npc.type, true);
-                int? essenceItem = null;
-                switch (npc.type)
-                {
-                    case NPCID.EyeofCthulhu: essenceItem = ModContent.ItemType<EyeOfCthulhuEssence>(); break;
-                }
-                if (essenceItem != null)
-                {
-                    npc.DropItemInstanced(npc.position, npc.Size, essenceItem.Value, 5, true);
-                }
-            }*/
         }
 
         public static int? GetSummonItem(NPC npc)
@@ -111,7 +58,7 @@ namespace Luciful
             bool? dropSpawnItem = null;
             Luciful instance = Luciful.Instance;
             if (npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer)
-                if ((NPCHelper.GetNPCCount(NPCID.Spazmatism) + NPCHelper.GetNPCCount(NPCID.Retinazer)) == 1)
+                if ((NPCHelper.GetNPCCount(NPCID.Spazmatism) + NPCHelper.GetNPCCount(NPCID.Retinazer)) <= 1)
                     dropSpawnItem = true;
             if (dropSpawnItem == null)
                 if (NPCHelper.GetNPCCount(npc.type) == 1) dropSpawnItem = true;
@@ -134,11 +81,6 @@ namespace Luciful
                     }
 
                     Item.NewItem(npc.GetSource_DropAsItem(), itemPosition, (int)summonItem);
-                }
-                if (npc.boss)
-                {
-                    instance.bossesAlive--;
-                    //if (instance.bossesAlive == 0) instance.bossBorder = null;
                 }
             }
         }

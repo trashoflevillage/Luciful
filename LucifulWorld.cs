@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
 using Terraria.WorldBuilding;
+using Terraria.ID;
 
 namespace Luciful
 {
@@ -17,24 +18,13 @@ namespace Luciful
         public override void SaveWorldData(TagCompound tag)
         {
             Luciful instance = Luciful.Instance;
-            //instance.bossBorder = null;
-            List<string> lucifulData = new List<string>();
-            foreach (KeyValuePair<string, bool> i in instance.bossesKilled)
-                if (i.Value) lucifulData.Add("defeated" + i.Key);
-            //if (instance.contractSigned) lucifulData.Add("contractSigned");
-            tag.Add("lucifulData", lucifulData);
+            tag.Add("merfolkStudy", Luciful.Instance.merfolkStudy);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
             Luciful instance = Luciful.Instance;
-            //instance.bossBorder = null;
-            instance.bossesKilled.Clear();
-
-            IList<string> lucifulData = tag.GetList<string>("lucifulData");
-            foreach (string i in lucifulData)
-                if (i.Contains("defeated")) instance.bossesKilled.Add(i, true);
-            //if (lucifulData.Contains("contractSigned")) instance.contractSigned = true; else instance.contractSigned = false;
+            Luciful.Instance.merfolkStudy = tag.GetBool("merfolkStudy");
         }
 
         public override void PostUpdateEverything()

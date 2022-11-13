@@ -76,11 +76,5 @@ namespace Luciful.Common.Global.GlobalItems
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
         }
-
-        public override bool ConsumeItem(Item item, Player player)
-        {
-            if (player.HasBuff(ModContent.BuffType<Content.Buffs.ContractualObligation>())) return false;
-            return true;
-        }
     }
 }
