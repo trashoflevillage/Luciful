@@ -19,18 +19,6 @@ namespace Luciful
 
         public override void SetDefaults(NPC npc)
         {
-            Luciful instance = Luciful.Instance;
-            /*
-            if (instance.contractSigned == true && Main.masterMode)
-            {
-                npc.lifeMax = (int) (1.2 * npc.lifeMax);
-                npc.life = (int) (1.2 * npc.lifeMax);
-            }*/
-
-            if (npc.buffImmune[BuffID.Ichor])
-                npc.buffImmune[ModContent.BuffType<Content.Buffs.DilutedIchor>()] = true;
-            if (npc.buffImmune[BuffID.CursedInferno])
-                npc.buffImmune[ModContent.BuffType<Content.Buffs.CursedSpark>()] = true;
         }
 
         public static LucifulNPC Convert(NPC npc)
