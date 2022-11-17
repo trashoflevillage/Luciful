@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Luciful.Common.Systems.Util;
-using Trashlib.Common.Global;
 
 namespace Luciful
 {
-    internal class LucifulNPC : TrashNPC
+    internal class LucifulNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
+        public int cursedSparkTick = 0;
 
+        //public bool contracted = false;
         public List<DropOneByOne> dropOneByOnes = new List<DropOneByOne>();
 
         public override void SetDefaults(NPC npc)
@@ -52,9 +53,8 @@ namespace Luciful
             return LocationHelper.GetNearestPlayer(npc.position);
         }
 
-        public override void OnDespawn(NPC npc)
+        public static void OnDespawn(NPC npc)
         {
-            Main.NewText("Luciful Test");
             bool? dropSpawnItem = null;
             Luciful instance = Luciful.Instance;
             if (npc.type == NPCID.Spazmatism || npc.type == NPCID.Retinazer)
