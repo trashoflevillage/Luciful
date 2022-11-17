@@ -27,23 +27,6 @@ namespace Luciful
             Luciful.Instance.merfolkStudy = tag.GetBool("merfolkStudy");
         }
 
-        public override void PostUpdateEverything()
-        {
-            Luciful instance = Luciful.Instance;
-            List<NPC> removeNPCs = new List<NPC>();
-            foreach (NPC i in NPCs.Where(n => !n.active))
-            {
-                if (i.life > 0)
-                    LucifulNPC.OnDespawn(i);
-                removeNPCs.Add(i);
-            }
-            foreach (NPC i in removeNPCs)
-            {
-                NPCs.Remove(i);
-            }
-
-            //if (instance.bossBorder != null) instance.bossBorder.Tick();
-        }
         public override void AddRecipeGroups()
         {
         }

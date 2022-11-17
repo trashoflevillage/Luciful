@@ -1,4 +1,4 @@
 displayName = Luciful
 author = trashoflevillage
 version = 0.1
-modReferences = StructureHelper
+modReferences = StructureHelper, Trashlib
