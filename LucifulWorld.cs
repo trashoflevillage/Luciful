@@ -19,12 +19,16 @@ namespace Luciful
         {
             Luciful instance = Luciful.Instance;
             tag.Add("merfolkStudy", Luciful.Instance.merfolkStudy);
+            tag.Add("flipperShop", Luciful.Instance.flipperShop.ToArray());
+            tag.Add("flipperShopOld", Luciful.Instance.flipperShopOld);
         }
 
         public override void LoadWorldData(TagCompound tag)
         {
             Luciful instance = Luciful.Instance;
             Luciful.Instance.merfolkStudy = tag.GetBool("merfolkStudy");
+            Luciful.Instance.flipperShop = tag.GetIntArray("flipperShop").ToList();
+            Luciful.Instance.flipperShopOld = tag.GetIntArray("flipperShopOld");
         }
 
         public override void PostUpdateEverything()

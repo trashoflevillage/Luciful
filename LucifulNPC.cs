@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Luciful.Common.Systems.Util;
+using System.Linq;
 
 namespace Luciful
 {
@@ -82,6 +83,20 @@ namespace Luciful
 
                     Item.NewItem(npc.GetSource_DropAsItem(), itemPosition, (int)summonItem);
                 }
+            }
+        }
+
+        public override void SetupTravelShop(int[] shop, ref int nextSlot)
+        {
+            Luciful instance = Luciful.Instance;
+            foreach (int i in instance.flipperShopOld)
+            {
+                instance.flipperShop.Remove(i);
+            }
+            instance.flipperShopOld = instance.flipperShop.ToArray();
+            foreach (int i in shop.Reverse())
+            {
+                instance.flipperShop.Insert(0, i);
             }
         }
     }

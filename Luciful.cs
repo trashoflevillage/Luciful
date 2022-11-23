@@ -13,8 +13,10 @@ namespace Luciful
 		public static Luciful Instance { get; private set; }
 
         public bool merfolkStudy = false;
+        public List<int> flipperShop = new List<int>();
+        public int[] flipperShopOld = new int[] {};
 
-		public override void Load()
+        public override void Load()
         {
         }
 
