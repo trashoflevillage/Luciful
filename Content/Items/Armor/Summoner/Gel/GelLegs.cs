@@ -12,10 +12,6 @@ namespace Luciful.Content.Items.Armor.Summoner.Gel
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Gel Leggings");
-            Tooltip.SetDefault("Increases minion damage by 2%");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

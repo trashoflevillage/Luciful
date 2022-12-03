@@ -9,7 +9,6 @@ namespace Luciful.Content.Items.Placeables.Ores
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aquamarine Ore");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
             ItemID.Sets.SortingPriorityMaterials[Type] = 176;
         }

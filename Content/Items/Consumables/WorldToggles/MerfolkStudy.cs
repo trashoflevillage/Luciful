@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,8 +14,7 @@ namespace Luciful.Content.Items.Consumables.WorldToggles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Merfolk's Study");
-            Tooltip.SetDefault("Allows for the forging of Aquamarine Bars for all players in the world");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()

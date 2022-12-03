@@ -13,8 +13,6 @@ namespace Luciful.Content.Items.Tools.Special
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Mirror");
-            Tooltip.SetDefault("Gaze in the mirror to return to your last death point");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         

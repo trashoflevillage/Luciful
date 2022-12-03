@@ -8,10 +8,8 @@ namespace Luciful.Content.Items.Tools.Shovels
 {
     internal class LeadShovel : ModItem
     {
-        public override async void SetStaticDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lead Shovel");
-            Tooltip.SetDefault("Replacement for the Gravedigger's Shovel\nDigs in a bigger area than a pickaxe\nOnly digs up soft tiles");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

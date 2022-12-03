@@ -10,8 +10,6 @@ namespace Luciful.Content.Items.Tools.Shovels
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Silver Shovel");
-            Tooltip.SetDefault("Digs in a bigger area than a pickaxe\nOnly digs up soft tiles");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

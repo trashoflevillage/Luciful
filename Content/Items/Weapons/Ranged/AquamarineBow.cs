@@ -11,8 +11,6 @@ namespace Luciful.Content.Items.Weapons.Ranged
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The Surge");
-			Tooltip.SetDefault("Shoots 2 arrows at a time");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

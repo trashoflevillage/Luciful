@@ -12,8 +12,6 @@ namespace Luciful.Content.Items.Tools.Shovels.AutoSifters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Silver Sifter");
-            Tooltip.SetDefault("Sifts tiles in a large area");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

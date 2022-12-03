@@ -9,7 +9,6 @@ namespace Luciful.Content.Items.Placeables.Furniture.Chests
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cobalt Chest");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.SortingPriorityMaterials[Type] = 176;
         }

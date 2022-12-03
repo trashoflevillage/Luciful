@@ -10,7 +10,6 @@ namespace Luciful.Content.Items.Placeables.Bars
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bronze Bar");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
             ItemID.Sets.SortingPriorityMaterials[Type] = 177;
         }

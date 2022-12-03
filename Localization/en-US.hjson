@@ -1,0 +1,169 @@
+﻿Mods: {
+	Luciful: {
+		Config: {}
+
+		Currencies: {}
+
+		DamageClassName: {}
+
+		Keybind: {}
+
+		NPCName: {}
+
+		MapObject: {}
+
+		ItemName: {
+			CoordinateFinder: Coordinate Finder
+
+			BlueFlask: Blue Flask
+
+			HungrySpell: Tome of Hunger
+
+			ElementalBoomerang: Elemental Boomerang
+
+			DungeonDartPipe: The Piper
+			DungeonDartPistol: Dungeon Dartler
+			DungeonDartRifle: The Neutralizer
+
+			GoldenGlory: Golden Glory
+
+			CursedMirror: Cursed Mirror
+
+			IronShovel: Iron Shovel
+			LeadShovel: Lead Shovel
+			GoldShovel: Gold Shovel
+			PlatinumShovel: Platinum Shovel
+			SilverShovel: Silver Shovel
+			TungstenShovel: TungstenShovel
+			DemoniteShovel: Shadow Spade
+			CrimtaneShovel: Clot Breaker
+			PalladiumShovel: Palladium Shovel
+			CobaltShovel: Cobalt Shovel
+
+			TungstenSifter: Tungsten Sifter
+			SilverSifter: Silver Sifter
+			
+			AquamarineBar: Aquamarine Bar
+			AquamarinePickaxe: Aquamarine Pickaxe
+			AquamarineHamaxe: Aquamarine Hamaxe
+			AquamarineBow: The Surge
+			AquamarineOre: Aquamarine Ore
+			AquamarineBroadsword: Tideswinger
+
+			MerfolkStudy: Merfolk's Study
+
+			FracturedAltarCorruption: Fractured Altar
+			FracturedAltarCrimson: Fractured Altar
+
+			CobaltChest: Cobalt Chest
+
+			BronzeBar: Bronze Bar
+
+			GelLegs: Gel Leggings
+			GelHead: Gel Bandana
+			GelBreastplate: Gel Breastplate
+		}
+
+		ItemTooltip: {
+			TungstenSifter: Sifts tiles in a large area
+			SilverSifter: Sifts tiles in a large area
+
+			DemoniteShovel: Digs in a bigger area than a pickaxe
+			CrimtaneShovel: Digs in a bigger area than a pickaxe
+			CobaltShovel: Digs in a bigger area than a pickaxe
+			PalladiumShovel: Digs in a bigger area than a pickaxe
+			IronShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+			LeadShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+			GoldShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+			PlatinumShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+			SilverShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+			TungstenShovel: 
+				'''
+				Digs in a bigger area than a pickaxe
+				Only digs up soft tiles
+				'''
+
+			CoordinateFinder: 'Superb for impersonating devs!'
+
+			BlueFlask: 
+				'''
+				Clouds have a chance of leaving behind mana stars when damaging enemies
+				'Fuck you, and your eyebrows!'
+				'''
+
+			HungrySpell: Summons a hungry, fleshy mass that will munch on anything in its path\nEnemies have a chance of dropping hearts when struck
+
+			ElementalBoomerang: 
+				'''
+				Alternates between throwing Ice Boomerangs and Flamarangs
+				You can throw multiple at a time
+				Flamarangs inflict On Fire!
+				Ice Boomerangs inflict Frostburn
+				'''
+
+			AquamarineBow: Shoots 2 arrows at a time
+
+			MerfolkStudy: Allows for the forging of Aquamarine Bars for all players in the world
+
+			CursedMirror: Gaze in the mirror to return to your last death point
+
+			GelLegs: Increases minion damage by 2%
+			GelHead: 
+			'''
+			Increases minion damage by 2%
+			Increases maximum mana by 20
+			'''
+			GelBreastplate: 
+			'''
+			Increases minion damage by 2%
+			Increases your max number of minions by 1
+			'''
+		}
+
+		SetBonus: {
+			Gel: Summons a baby slime to fight for you
+		}
+
+		ProjectileName: {}
+
+		BuffName: {}
+
+		BuffDescription: {}
+
+		RecipeConditions: {}
+
+		ResourceDisplaySet: {}
+
+		Bestiary: {}
+
+		BiomeName: {}
+
+		TownNPCMood: {}
+
+		MessageInfo: {}
+
+		Dialogue: {}
+
+		GameTips: {}
+	}
+}

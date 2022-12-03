@@ -10,8 +10,6 @@ namespace Luciful.Content.Items.Tools.Shovels
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Clot Breaker");
-            Tooltip.SetDefault("Digs in a bigger area than a pickaxe");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

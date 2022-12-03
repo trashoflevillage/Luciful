@@ -10,13 +10,6 @@ namespace Luciful.Content.Items.Weapons.Melee
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Elemental Boomerang");
-			Tooltip.SetDefault
-				("Alternates between throwing Ice Boomerangs and Flamarangs" +
-                "\nYou can throw multiple at a time" +
-                "\nFlamarangs inflict On Fire!" +
-                "\nIce Boomerangs inflict Frostburn");
-
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

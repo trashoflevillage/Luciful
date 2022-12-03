@@ -8,9 +8,6 @@ namespace Luciful.Content.Items.Weapons.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blue Flask");
-			Tooltip.SetDefault("Clouds have a chance of leaving behind mana stars when damaging enemies\n'Fuck you, and your eyebrows!'");
-
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 

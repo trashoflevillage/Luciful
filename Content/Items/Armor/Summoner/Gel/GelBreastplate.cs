@@ -12,10 +12,6 @@ namespace Luciful.Content.Items.Armor.Summoner.Gel
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Gel Breastplate");
-            Tooltip.SetDefault("Increases minion damage by 2%\nIncreases your max number of minions by 1");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

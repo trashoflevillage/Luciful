@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Luciful.Content.Items.Armor.Summoner.Gel
@@ -12,10 +13,6 @@ namespace Luciful.Content.Items.Armor.Summoner.Gel
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Gel Bandana");
-            Tooltip.SetDefault("Increases minion damage by 2%\nIncreases maximum mana by 20");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -43,7 +40,7 @@ namespace Luciful.Content.Items.Armor.Summoner.Gel
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Summons a baby slime to fight for you, without consuming any minion slots."; // This is the setbonus tooltip
+            player.setBonus = Language.GetTextValue("Mods.Luciful.SetBonus.Gel"); // This is the setbonus tooltip
             player.AddBuff(BuffID.BabySlime, -1);
         }
 

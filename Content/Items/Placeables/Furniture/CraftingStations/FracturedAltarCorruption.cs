@@ -9,8 +9,6 @@ namespace Luciful.Content.Items.Placeables.Furniture.CraftingStations
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fractured Altar");
-            Tooltip.SetDefault("Can craft items that demon altars can");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()

@@ -10,7 +10,6 @@ namespace Luciful.Content.Items.Tools.Aquamarine
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aquamarine Hamaxe");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

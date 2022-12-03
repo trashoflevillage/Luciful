@@ -12,8 +12,6 @@ namespace Luciful.Content.Items.Tools.Special
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Coordinate Finder");
-            Tooltip.SetDefault("'Superb for impersonating devs!'");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Weapons.Magic
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Tome of Hunger");
-			Tooltip.SetDefault("Summons a hungry, fleshy mass that will munch on anything in its path\nEnemies have a chance of dropping hearts when struck");
-
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
