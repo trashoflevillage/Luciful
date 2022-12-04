@@ -12,9 +12,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Diamond Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 150%\nIncreases melee damage by 6%\n30% decreased melee speed\nHandy for true melee!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

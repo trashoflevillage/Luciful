@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Luciful.Content.Items.Armor.Melee.Granite
@@ -12,10 +13,6 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Granite Helmet");
-            Tooltip.SetDefault("5% increased melee critical strike chance");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -43,7 +40,7 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
         public override void UpdateArmorSet(Player player)
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
-            player.setBonus = "5% increased melee speed"; // This is the setbonus tooltip
+            player.setBonus = Language.GetTextValue("Mod.Luciful.SetBonus.Granite"); // This is the setbonus tooltip
             modPlayer.bonusMeleeSpeed += 0.05f; // Increase dealt damage for all weapon classes by 20%
         }
 

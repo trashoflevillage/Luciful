@@ -12,10 +12,6 @@ namespace Luciful.Content.Items.Armor.Melee.Granite
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Granite Leggings");
-            Tooltip.SetDefault("5% increased melee damage");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

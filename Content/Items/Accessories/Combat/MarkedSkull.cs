@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Accessories.Combat
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Marked Skull");
-            Tooltip.SetDefault("When attacking an enemy with full health, you are guaranteed to land a critical strike\n+5% critical strike chance");
-            
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

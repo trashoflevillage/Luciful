@@ -3,6 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Luciful.Content.Items.Placeables.Bars;
+using Terraria.Localization;
 
 namespace Luciful.Content.Items.Armor.General.Bronze
 {
@@ -13,10 +14,6 @@ namespace Luciful.Content.Items.Armor.General.Bronze
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Bronze Helmet");
-            Tooltip.SetDefault("3% increased damage");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -43,7 +40,7 @@ namespace Luciful.Content.Items.Armor.General.Bronze
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "2% increased damage reduction"; // This is the setbonus tooltip
+            player.setBonus = Language.GetTextValue("Mod.Luciful.SetBonus.Bronze"); // This is the setbonus tooltip
             player.endurance += 0.02f;
         }
 

@@ -3,6 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Luciful.Content.Items.Placeables.Bars;
+using Terraria.Localization;
 
 namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
 {
@@ -13,10 +14,6 @@ namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Aquamarine Mask");
-            Tooltip.SetDefault("5% increased melee speed\n8% increased melee damage");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -45,7 +42,7 @@ namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "5% increased melee armor penetration"; // This is the setbonus tooltip
+            player.setBonus = Language.GetTextValue("Mods.Luciful.SetBonus.AquamarineMelee"); // This is the setbonus tooltip
             player.GetArmorPenetration(DamageClass.Melee) += 0.05f; // Increase dealt damage for all weapon classes by 20%
         }
 

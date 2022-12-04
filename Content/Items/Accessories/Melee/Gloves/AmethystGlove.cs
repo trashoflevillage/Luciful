@@ -12,9 +12,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Amethyst Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 35%\nIncreases melee damage by 1%\nHandy for true melee!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

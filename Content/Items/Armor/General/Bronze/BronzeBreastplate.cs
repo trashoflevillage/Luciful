@@ -13,10 +13,6 @@ namespace Luciful.Content.Items.Armor.General.Bronze
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Bronze Breastplate");
-            Tooltip.SetDefault("15% increased mining speed");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

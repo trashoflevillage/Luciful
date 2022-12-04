@@ -12,9 +12,6 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mushroom Necklace");
-            Tooltip.SetDefault("Increases life regeneration");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -25,8 +22,6 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
             Item.accessory = true;
             Item.rare = ItemRarityID.White;
             Item.value = Item.sellPrice(copper: 3);
-            LucifulItem modItem = LucifulItem.Convert(Item);
-
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -74,7 +74,11 @@ namespace Luciful
 
         public void ModifyHit(NPC target, ref int damage, ref float knockback, ref bool crit) 
         {
-            if (firstStrikeBenefits && target.life == target.lifeMax) crit = true;
+            if (firstStrikeBenefits && target.life == target.lifeMax)
+            {
+                damage *= 2;
+                crit = true;
+            }
             if (accessories.Contains(ModContent.ItemType<Content.Items.Accessories.Combat.ShadowEye>()))
                 if (target.life <= target.lifeMax / 4) crit = true;
         }

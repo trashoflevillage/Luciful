@@ -13,10 +13,6 @@ namespace Luciful.Content.Items.Armor.General.Bronze
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Bronze Leggings");
-            Tooltip.SetDefault("5% increased movement speed");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

@@ -12,9 +12,6 @@ namespace Luciful.Content.Items.Accessories.General.Necklaces
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Glowing Mushroom Necklace");
-            Tooltip.SetDefault("Increases the potency of healing potions");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

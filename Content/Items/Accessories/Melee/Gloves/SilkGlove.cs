@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Silk Glove");
-            Tooltip.SetDefault("4% increased melee speed");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

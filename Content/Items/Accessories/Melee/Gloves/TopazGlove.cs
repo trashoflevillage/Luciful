@@ -12,9 +12,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Topaz Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 50%\nIncreases melee damage by 2%\n5% decreased melee speed\nHandy for true melee!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

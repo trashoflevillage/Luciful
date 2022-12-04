@@ -14,9 +14,6 @@ namespace Luciful.Content.Items.Ammo
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Necro Dart"); // The item's description, can be set to whatever you want.
-			Tooltip.SetDefault("Victim's defense temporarily lowers with health"); // The item's description, can be set to whatever you want.
-
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

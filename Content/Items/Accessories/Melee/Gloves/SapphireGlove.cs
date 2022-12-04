@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sapphire Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 75%\nIncreases melee damage by 3%\n20% decreased melee speed\nHandy for true melee!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -24,8 +21,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
             Item.accessory = true;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(silver: 25);
-            LucifulItem modItem = LucifulItem.Convert(Item);
-
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

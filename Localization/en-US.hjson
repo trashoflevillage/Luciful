@@ -4,7 +4,9 @@
 
 		Currencies: {}
 
-		DamageClassName: {}
+		DamageClassName: {
+			ProjectileSupport: titan damage
+		}
 
 		Keybind: {}
 
@@ -59,9 +61,44 @@
 
 			BronzeBar: Bronze Bar
 
-			GelLegs: Gel Leggings
 			GelHead: Gel Bandana
 			GelBreastplate: Gel Breastplate
+			GelLegs: Gel Leggings
+
+			AquamarineMeleeHead: Aquamarine Mask
+			AquamarineRangedHead: Aquamarine Helmet
+			AquamarineMagicHead: Aquamarine Headgear
+			AquamarineBreastplate: Aquamarine Breastplate
+			AquamarineLegs: Aquamarine Leggings
+			AquamarineArrow: Whirlpool Arrow
+
+			GraniteHead: Granite Helmet
+			GraniteBreastplate: Granite Breastplate
+			GraniteLegs: Granite Leggings
+
+			BronzeHelmet: Bronze Helmet
+			BronzeBreastplate: Bronze Breastplate
+			BronzeLegs: Bronze Leggings
+
+			BoneDart: Necro Dart
+
+			SilkGlove: Silk Glove4% increased melee speed
+			TopazGlove: Topaz Embedded Glove
+			SapphireGlove: Sapphire Embedded Glove
+			RubyGlove: Ruby Embedded Glove
+			EmeraldGlove: Emerald Embedded Glove
+			DiamondGlove: Diamond Embedded Glove
+			AmethystGlove: Amethyst Embedded Glove
+			AmberGlove: Amber Embedded Glove
+			SightGauntlet: Gauntlet of Sight
+			MightGauntlet: Gauntlet of Might
+			FrightGauntlet: Gauntlet of Fright
+
+			MushroomNecklace: Mushroom Necklace
+			GlowingMushNecklace: Glowing Mushroom Necklace
+
+			ShadowEye: Eye of Shadow
+			MarkedSkull: Marked Skull
 		}
 
 		ItemTooltip: {
@@ -111,7 +148,11 @@
 				'Fuck you, and your eyebrows!'
 				'''
 
-			HungrySpell: Summons a hungry, fleshy mass that will munch on anything in its path\nEnemies have a chance of dropping hearts when struck
+			HungrySpell: 
+				'''
+				Summons a hungry, fleshy mass that will munch on anything in its path
+				Enemies have a chance of dropping hearts when struck
+				'''
 
 			ElementalBoomerang: 
 				'''
@@ -121,27 +162,154 @@
 				Ice Boomerangs inflict Frostburn
 				'''
 
-			AquamarineBow: Shoots 2 arrows at a time
-
 			MerfolkStudy: Allows for the forging of Aquamarine Bars for all players in the world
 
 			CursedMirror: Gaze in the mirror to return to your last death point
 
-			GelLegs: Increases minion damage by 2%
 			GelHead: 
-			'''
-			Increases minion damage by 2%
-			Increases maximum mana by 20
-			'''
+				'''
+				Increases minion damage by 2%
+				Increases maximum mana by 20
+				'''
 			GelBreastplate: 
-			'''
-			Increases minion damage by 2%
-			Increases your max number of minions by 1
-			'''
+				'''
+				Increases minion damage by 2%
+				Increases your max number of minions by 1
+				'''
+			GelLegs: Increases minion damage by 2%
+			
+			AquamarineMeleeHead: 
+				'''
+				5% increased melee speed
+				8% increased melee damage
+				'''
+			AquamarineRangedHead:
+				'''
+				5% increased ranged critical strike chance
+				8% increased ranged damage
+				'''
+			AquamarineMagicHead:
+				'''
+				5% reduced mana usage
+				8% increased magic damage
+				'''
+			AquamarineBow: Shoots 2 arrows at a time
+			AquamarineArrow: 
+				'''
+				Bounces back after hitting a wall
+				Does not attempt to bounce towards enemies
+				Unaffected by water
+				'''
+
+			GraniteHead: 5% increased melee critical strike chance
+			GraniteBreastplate: 5% increased melee damage
+			GraniteLegs: 5% increased melee damage
+
+			BronzeHelmet: 3% increased damage
+			BronzeBreastplate: 15% increased mining speed
+			BronzeLegs: 5% increased movement speed
+
+			BoneDart: Victim's defense temporarily lowers with health
+			
+			SilkGlove: 4% increased melee speed
+			TopazGlove: 
+				'''
+				Increases melee weapon size by 50%
+				Increases melee damage by 2%
+				5% decreased melee speed
+				Handy for true melee!
+				'''
+			SapphireGlove: 
+				'''
+				Increases melee weapon size by 75%
+				Increases melee damage by 3%
+				20% decreased melee speed
+				Handy for true melee!
+				'''
+			RubyGlove: 
+				'''
+				Increases melee weapon size by 125%
+				Increases melee damage by 5%
+				25% decreased melee speed
+				Handy for true melee!
+				'''
+			EmeraldGlove: 
+				'''
+				Increases melee weapon size by 100%
+				Increases melee damage by 4%
+				20% decreased melee speed
+				Handy for true melee!
+				'''
+			DiamondGlove: 
+				'''
+				Increases melee weapon size by 150%
+				Increases melee damage by 6%
+				30% decreased melee speed
+				Handy for true melee!
+				'''
+			AmethystGlove: 
+				'''
+				Increases melee weapon size by 35%
+				Increases melee damage by 1%
+				Handy for true melee!
+				'''
+			AmberGlove: 
+				'''
+				Increases melee weapon size by 125%
+				Increases melee damage by 5%
+				25% decreased melee speed
+				Handy for true melee!
+				'''
+			SightGauntlet: 
+				'''
+				Increases melee weapon size by 150%
+				Increases melee damage by 7%
+				30% decreased melee speed
+				Handy for true melee!
+				Hopefully I don't forget to add effects later!
+				'''
+			MightGauntlet: 
+				'''
+				Increases melee weapon size by 150%
+				Increases melee damage by 13%
+				30% decreased melee speed
+				Handy for true melee!
+				Show your might with pure strength!
+				'''
+			FrightGauntlet: 
+				'''
+				Increases melee weapon size by 150%
+				Increases melee damage by 7%
+				30% decreased melee speed
+				Handy for true melee!
+				Hopefully I don't forget to add effects later!
+				'''
+
+			MushroomNecklace: Increases life regeneration
+			GlowingMushNecklace: Increases the potency of healing potions
+
+			ShadowEye:
+				'''
+				When attacking an enemy with 1/4 health or less, you are guaranteed to land a critical strike
+				+5% critical strike chance
+				'''
+			MarkedSkull:
+				'''
+				When attacking an enemy with full health, you are guaranteed to land a critical strike and deal double damage
+				+5% critical strike chance
+				'''
 		}
 
 		SetBonus: {
 			Gel: Summons a baby slime to fight for you
+
+			AquamarineMelee: 5% increased melee armor penetration
+			AquamarineRanged: 5% increased ranged speed
+			AquamarineMagic: 5% increased magic speed
+
+			Granite: 5% increased melee speed
+
+			Bronze: 2% increased damage reduction
 		}
 
 		ProjectileName: {}

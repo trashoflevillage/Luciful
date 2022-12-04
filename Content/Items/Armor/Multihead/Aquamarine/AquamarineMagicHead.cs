@@ -3,6 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Luciful.Content.Items.Placeables.Bars;
+using Terraria.Localization;
 
 namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
 {
@@ -13,10 +14,6 @@ namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
     {
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-            DisplayName.SetDefault("Aquamarine Headgear");
-            Tooltip.SetDefault("5% reduced mana usage\n8% increased magic damage");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
@@ -44,7 +41,7 @@ namespace Luciful.Content.Items.Armor.Multihead.Aquamarine
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "5% increased magic speed"; // This is the setbonus tooltip
+            player.setBonus = Language.GetTextValue("Mods.Luciful.SetBonus.AquamarineMagic"); // This is the setbonus tooltip
             player.GetAttackSpeed(DamageClass.Magic) += 0.05f; // Increase dealt damage for all weapon classes by 20%
         }
 

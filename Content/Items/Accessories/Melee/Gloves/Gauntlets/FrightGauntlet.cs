@@ -13,9 +13,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves.Gauntlets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gauntlet of Fright");
-            Tooltip.SetDefault("Increases melee weapon size by 150%\nIncreases melee damage by 7%\n30% decreased melee speed\nHandy for true melee!\nHopefully I don't forget to add effects later!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4)); // ticksperframe, frames

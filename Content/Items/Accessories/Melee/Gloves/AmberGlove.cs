@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Accessories.Melee.Gloves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Amber Embedded Glove");
-            Tooltip.SetDefault("Increases melee weapon size by 125%\nIncreases melee damage by 5%\n25% decreased melee speed\nHandy for true melee!");
-
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

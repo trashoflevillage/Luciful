@@ -11,9 +11,6 @@ namespace Luciful.Content.Items.Accessories.Combat
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eye of Shadow");
-            Tooltip.SetDefault("When attacking an enemy with 1/4 health or less, you are guaranteed to land a critical strike\n+5% critical strike chance\nYou can feel it staring back at you.");
-            
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
