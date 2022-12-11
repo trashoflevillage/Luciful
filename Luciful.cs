@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
+using Luciful.Content.Items.Materials;
 
 namespace Luciful
 {
@@ -26,6 +27,13 @@ namespace Luciful
             {
                 if (i.HasResult(ItemID.GravediggerShovel)) i.DisableRecipe();
             }
+        }
+
+        public override void AddRecipes()
+        {
+            Recipe.Create(ItemID.PaperAirplaneA).AddIngredient(ModContent.ItemType<Paper>()).Register();
+
+            Recipe.Create(ItemID.Book).AddIngredient(ItemID.Leather).AddIngredient(ModContent.ItemType<Paper>(), 10).AddTile(TileID.WorkBenches).Register();
         }
     }
 }

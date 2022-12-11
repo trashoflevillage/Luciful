@@ -5,7 +5,7 @@
 		Currencies: {}
 
 		DamageClassName: {
-			ProjectileSupport: titan damage
+			Commander: commander damage
 		}
 
 		Keybind: {}
@@ -99,6 +99,8 @@
 
 			ShadowEye: Eye of Shadow
 			MarkedSkull: Marked Skull
+
+			Paper: Paper
 		}
 
 		ItemTooltip: {

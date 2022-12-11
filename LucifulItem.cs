@@ -1,6 +1,9 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Luciful.Common.Systems;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace Luciful
 {
@@ -21,6 +24,8 @@ namespace Luciful
 
         public bool reforgable = false;
 
+        public CommanderSpecial commanderSpecial = null;
+
         public static LucifulItem Convert(Item item) {
             return item.GetGlobalItem<LucifulItem>();
         }
@@ -29,6 +34,29 @@ namespace Luciful
         {
             LucifulPlayer modPlayer = player.GetModPlayer<LucifulPlayer>();
             modPlayer.accessories.Add(item.type);
+        }
+
+        public override void SetDefaults(Item item)
+        {
+            if (item.type == ItemID.PaperAirplaneA || item.type == ItemID.PaperAirplaneB)
+            {
+                item.value = Item.sellPrice(copper: 40);
+                item.ammo = ItemID.PaperAirplaneA;
+            }
+        }
+
+        public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            LucifulItem modItem = Convert(item);
+
+            if (modItem.commanderSpecial != null)
+            {
+                int projWhoAmI = Projectile.NewProjectile(source, position, velocity, item.shoot, damage, knockback, player.whoAmI);
+                Main.projectile[projWhoAmI].GetGlobalProjectile<LucifulProjectile>().commanderSpecial = modItem.commanderSpecial;
+                return false;
+            }
+
+            return base.Shoot(item, player, source, position, velocity, type, damage, knockback);
         }
     }
 }

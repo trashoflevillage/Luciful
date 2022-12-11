@@ -10,7 +10,7 @@ namespace Luciful.Content.Buffs
     {
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fragile Bones");
+			DisplayName.SetDefault("Brittle Bones");
 			Description.SetDefault("Defense lowers with health"); Main.debuff[Type] = true;  // Is it a debuff?
 			Main.pvpBuff[Type] = true; // Players can give other players buffs, which are listed as pvpBuff
 			Main.buffNoSave[Type] = true; // Causes this buff not to persist when exiting and rejoining the world
