@@ -5,7 +5,7 @@
 		Currencies: {}
 
 		DamageClassName: {
-			Commander: commander damage
+			Commander: commanding damage
 		}
 
 		Keybind: {}
@@ -101,6 +101,10 @@
 			MarkedSkull: Marked Skull
 
 			Paper: Paper
+
+			Harplane: Harplane
+
+			PaperHead: Paper Helmet
 		}
 
 		ItemTooltip: {
@@ -314,7 +318,9 @@
 			Bronze: 2% increased damage reduction
 		}
 
-		ProjectileName: {}
+		ProjectileName: {
+			HarplaneProjectile: Harplane
+		}
 
 		BuffName: {}
 

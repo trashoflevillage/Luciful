@@ -99,5 +99,18 @@ namespace Luciful
                 instance.flipperShop.Insert(0, i);
             }
         }
+
+        public static bool IsValidTarget(int type)
+        {
+            int[] invalidTypes = new int[]
+            {
+                NPCID.TargetDummy
+            };
+
+            if (invalidTypes.Contains(type))
+                return false;
+
+            return true;
+        }
     }
 }
